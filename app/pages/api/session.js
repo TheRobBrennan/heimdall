@@ -6,11 +6,11 @@ export default async function session(req, res) {
     const { accessToken } = await tokenCache.getAccessToken()
 
     // JWT token debugging
-    // console.log(`[DEBUG] JWT: ${accessToken}`)
+    // console.log(`[DEBUG] api/session JWT: ${accessToken}`)
 
     res.status(200).json({ accessToken })
   } catch (error) {
-    console.error(error)
+    console.error(`ERROR: api/session - ${error}`)
     res.status(error.status || 500).json({
       code: error.code,
       error: error.message,

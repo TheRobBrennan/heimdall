@@ -11,9 +11,14 @@
  *
  *  https://www.notion.so/neo4j-graphql-v1-0-0-alpha-2-d47908030d4e4a0c86babbaef63887d0
  */
+
+import { decodeAuthorizationHeader } from "../lib/jwt"
+
 export const resolvers = {
   Query: {
     async hello(_parent, _args, _context) {
+      // EXAMPLE: Decode our JWT manually. This function currently logs decoded output, but you can imagine this might return some data or do additional processing
+      decodeAuthorizationHeader(_context?.req?.headers?.authorization)
       return `Hello. The current timestamp is ${Date.now()}`
     },
   },

@@ -26,6 +26,7 @@ module.exports = withPlugins([[withImages], [withBundleAnalyzer]], {
   },
   env: {
     AUTH0_DOMAIN: process.env.AUTH0_DOMAIN,
+    AUTH0_DOMAIN_KEYS: process.env.AUTH0_DOMAIN_KEYS,
     AUTH0_AUDIENCE: process.env.AUTH0_AUDIENCE,
     AUTH0_CLIENT_ID: process.env.AUTH0_CLIENT_ID,
     AUTH0_CLIENT_SECRET: process.env.AUTH0_CLIENT_SECRET,
@@ -36,6 +37,5 @@ module.exports = withPlugins([[withImages], [withBundleAnalyzer]], {
       process.env.POST_LOGOUT_REDIRECT_URI || "http://localhost:3000/",
     SESSION_COOKIE_SECRET: process.env.SESSION_COOKIE_SECRET,
     SESSION_COOKIE_LIFETIME: 7200, // 2 hours = 60 seconds * 60 minutes * 2
-    APP_HOST: process.env.DOMAIN,
   },
 })
