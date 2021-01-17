@@ -28,7 +28,7 @@ export async function fetchUser(cookie = "") {
   return json
 }
 
-export function useFetchUser({ required } = { required: false }) {
+export function useFetchUser({ required = false }) {
   const [loading, setLoading] = useState(
     () => !(typeof window !== "undefined" && window.__user)
   )
@@ -53,7 +53,7 @@ export function useFetchUser({ required } = { required: false }) {
         if (isMounted) {
           // When the user is not logged in but login is required
           if (required && !user) {
-            window.location.href = "/api/login"
+            window.location.href = "api/login"
             return
           }
           setUser(user)
