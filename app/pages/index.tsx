@@ -2,7 +2,7 @@ import { NextPage } from "next"
 
 import Layout from "../heimdall/layout/Layout"
 import Dashboard from "../heimdall/components/Dashboard/Dashboard"
-import Login from "../heimdall/components/Auth/Login/Login"
+import Login from "../heimdall/components/Authentication/Login/Login"
 
 import { useFetchUser } from "../auth0/user"
 

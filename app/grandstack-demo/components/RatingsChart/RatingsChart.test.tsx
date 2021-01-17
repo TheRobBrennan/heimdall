@@ -1,6 +1,8 @@
 /* istanbul ignore file */
 import React from "react"
-import TestRenderer, { act } from "react-test-renderer"
+import TestRenderer, {
+  act,
+} from "../../../heimdall/components/Authentication/Login/node_modules/react-test-renderer"
 import { MockedProvider } from "@apollo/client/testing"
 
 import RatingsChart, { GET_DATA_QUERY } from "./RatingsChart"

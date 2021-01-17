@@ -1,5 +1,5 @@
 import React from "react"
-import TestRenderer from "react-test-renderer"
+import TestRenderer from "../heimdall/components/Authentication/Login/node_modules/react-test-renderer"
 
 import DefaultPage from "../pages/index"
 import { MockedProvider } from "@apollo/client/testing"

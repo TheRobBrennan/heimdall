@@ -1,5 +1,7 @@
 import React from "react"
-import TestRenderer, { act } from "react-test-renderer"
+import TestRenderer, {
+  act,
+} from "../../../heimdall/components/Authentication/Login/node_modules/react-test-renderer"
 import { MockedProvider } from "@apollo/client/testing"
 
 import UserCount, { GET_USER_COUNT_QUERY } from "./UserCount"
