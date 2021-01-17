@@ -12,6 +12,11 @@
  *  https://www.notion.so/neo4j-graphql-v1-0-0-alpha-2-d47908030d4e4a0c86babbaef63887d0
  */
 
+/**
+ * Token expiration in seconds - 7200 = 2 hrs :: 86400 = 24 hours
+ *    Token Expiration (Seconds) * = 86400
+ *    Token Expiration For Browser Flows (Seconds) * = 7200
+ */
 import jwt_decode from "jwt-decode"
 import jwt from "jsonwebtoken"
 
@@ -48,25 +53,6 @@ export const resolvers = {
           function (err, decoded) {
             console.log(
               `\nThe envelope, please...\n${JSON.stringify(decoded, null, 2)}`
-            )
-            if (err) {
-              console.error(`ERROR: ${err}`)
-            }
-          }
-        )
-
-        // Verify with an expired token
-        const expiredToken =
-          "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InNOTnN1RWZmU0lxeTRrcmtrQ2t4SSJ9.eyJodHRwczovL2hlaW1kYWxsLmlvL2p3dC9jbGFpbXMiOnsieC1oZWltZGFsbC1kZWZhdWx0LXJvbGUiOiJ1c2VyIiwieC1oZWltZGFsbC1hbGxvd2VkLXJvbGVzIjpbInVzZXIiXSwieC1oZWltZGFsbC11c2VyLWlkIjoiZ29vZ2xlLW9hdXRoMnwxMTYwNTg2NjgzMDIyOTA4NjE4MTAifSwiaXNzIjoiaHR0cHM6Ly9oZWltZGFsbC1kZW1vLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJnb29nbGUtb2F1dGgyfDExNjA1ODY2ODMwMjI5MDg2MTgxMCIsImF1ZCI6WyJodHRwczovL2hlaW1kYWxsLmlvL2RlbW8iLCJodHRwczovL2hlaW1kYWxsLWRlbW8udXMuYXV0aDAuY29tL3VzZXJpbmZvIl0sImlhdCI6MTYxMDg4MTc2MywiZXhwIjoxNjEwOTY4MTYzLCJhenAiOiI2U25CUUw1WmQ3TjFvMHp5c3lmZnZhVUVGNXZoWUpFSCIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUifQ.If_rOTLm-3yrmbABED7MELUqwP6VQABZm5yJaC6KMQq2rKzc7dQFriLEurMjegi94hvZcl_W68evUfSdMT2ZF5JRRsKWBork-n-U8kPZRYuljfTeneBujyutt7svDB5H0uJQpsaJYxgBG494pT7q_W8TNFmxPdZw1kvjqahtFayLINrwNPsUQuT1FgUkd5N7hUHczY1vVDubPuE_ld97oJQ7PyVpUcyp3rmBmAr2SeA_WVHEZuOnMUui4bZLNTJqcGye5oiVtTwDcdxaHagb7jtcysaO_VkulvKKJVTjNK0v-ZyJ00uUWcu1-mitilLa1NcPWwDWhh8EXqhGFEN0Gg"
-        jwt.verify(
-          expiredToken,
-          getKey,
-          {
-            algorithms: ["HS256", "RS256"],
-          },
-          function (err, decoded) {
-            console.log(
-              `\nEXPIRED TOKEN...\n${JSON.stringify(decoded, null, 2)}`
             )
             if (err) {
               console.error(`ERROR: ${err}`)
