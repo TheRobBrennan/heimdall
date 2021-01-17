@@ -12,54 +12,13 @@
  *  https://www.notion.so/neo4j-graphql-v1-0-0-alpha-2-d47908030d4e4a0c86babbaef63887d0
  */
 
-/**
- * Token expiration in seconds - 7200 = 2 hrs :: 86400 = 24 hours
- *    Token Expiration (Seconds) * = 86400
- *    Token Expiration For Browser Flows (Seconds) * = 7200
- */
-import jwt_decode from "jwt-decode"
-import jwt from "jsonwebtoken"
+import { decodeAuthorizationHeader } from "../lib/jwt"
 
 export const resolvers = {
   Query: {
     async hello(_parent, _args, _context) {
-      const authorization = _context?.req?.headers?.authorization
-      if (authorization) {
-        const [_, token] = authorization.split("Bearer ")
-        console.log(`token: ${token}`)
-
-        // This decodes ANY well-formed JWT and does not vouch for validity or authenticity
-        const decoded = jwt_decode(token)
-        console.log(`decoded: ${JSON.stringify(decoded, null, 2)}`)
-
-        // Let's verify and see what we get
-        var jwksClient = require("jwks-rsa")
-        var client = jwksClient({
-          jwksUri: "https://heimdall-demo.us.auth0.com/.well-known/jwks.json",
-        })
-        const getKey = (header, callback) => {
-          client.getSigningKey(header.kid, function (err, key) {
-            var signingKey = key.publicKey || key.rsaPublicKey
-            callback(null, signingKey)
-          })
-        }
-        // Verify with a good (current token)
-        jwt.verify(
-          token,
-          getKey,
-          {
-            algorithms: ["HS256", "RS256"],
-          },
-          function (err, decoded) {
-            console.log(
-              `\nThe envelope, please...\n${JSON.stringify(decoded, null, 2)}`
-            )
-            if (err) {
-              console.error(`ERROR: ${err}`)
-            }
-          }
-        )
-      }
+      // EXAMPLE: Decode our JWT manually. This function currently logs decoded output, but you can imagine that the authorization const might contain an object with appropriate keys
+      decodeAuthorizationHeader(_context?.req?.headers?.authorization)
       return `Hello. The current timestamp is ${Date.now()}`
     },
   },
