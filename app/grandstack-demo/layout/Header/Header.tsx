@@ -12,7 +12,7 @@ import { AppBar, CssBaseline, Toolbar, Typography } from "@material-ui/core"
 const Header: FC = () => {
   const classes = useStyles()
 
-  const APP_TITLE = `Heimdall - featuring @neo4j/graphql ${dependencies["@neo4j/graphql"]} and TypeScript`
+  const APP_TITLE = `Heimdall [@neo4j/graphql ${dependencies["@neo4j/graphql"]}]`
   const APP_DESCRIPTION = `A sample project featuring @neo4j/graphql ${dependencies["@neo4j/graphql"]} and TypeScript`
   const APP_URL = "https://heimdall-kappa.vercel.app"
   const APP_TYPE = "website"
