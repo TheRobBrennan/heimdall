@@ -26,6 +26,7 @@ module.exports = withPlugins([[withImages], [withBundleAnalyzer]], {
   },
   env: {
     AUTH0_DOMAIN: process.env.AUTH0_DOMAIN,
+    AUTH0_DOMAIN_KEYS: process.env.AUTH0_DOMAIN_KEYS,
     AUTH0_AUDIENCE: process.env.AUTH0_AUDIENCE,
     AUTH0_CLIENT_ID: process.env.AUTH0_CLIENT_ID,
     AUTH0_CLIENT_SECRET: process.env.AUTH0_CLIENT_SECRET,
