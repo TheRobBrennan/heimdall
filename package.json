@@ -1,0 +1,46 @@
+{
+  "name": "heimdall",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [],
+  "author": "Rob Brennan <rob@therobbrennan.com> (therobbrennan.com)",
+  "license": "ISC",
+  "scripts": {
+    "analyze": "cd app && npm run analyze",
+    "deploy": "vercel",
+    "dev": "npm run docker:start",
+    "dev:clean": "npm run docker:build && npm run docker:start",
+    "dev:stop": "npm run docker:stop",
+    "dev:v4": "npm run docker:start:v4.x",
+    "dev:v4:clean": "npm run docker:build:v4.x && npm run docker:start:v4.x",
+    "dev:v4:stop": "npm run docker:stop:v4.x",
+    "start": "cd app && npm run dev",
+    "test": "npm run docker:test:nextjs",
+    "test:ci": "npm run docker:test:nextjs:ci",
+    "test:coverage": "npm run docker:test:nextjs:coverage",
+    "test:coverage:view": "npm run docker:test:nextjs:coverage && open app/coverage/lcov-report/index.html",
+    "test:verbose": "npm run docker:test:nextjs:verbose",
+    "test:watch": "cd app && npm run test:watch",
+    "open:repo": "npm repo",
+    "open:vercel": "open https://vercel.com",
+    "docker:build": "docker-compose up --remove-orphans --build --force-recreate",
+    "docker:build:v4.x": "docker-compose -f docker-compose-neo4j-v4.x.yml up --remove-orphans --build --force-recreate",
+    "docker:start": "docker-compose up",
+    "docker:start:v4.x": "docker-compose -f docker-compose-neo4j-v4.x.yml up",
+    "docker:stop": "docker-compose -v down && docker system prune -f --volumes",
+    "docker:stop:v4.x": "docker-compose -f docker-compose-neo4j-v4.x.yml -v down && docker system prune -f --volumes",
+    "docker:test:nextjs": "docker-compose exec nextjs npm test",
+    "docker:test:nextjs:ci": "docker-compose exec nextjs npm run test:ci",
+    "docker:test:nextjs:coverage": "docker-compose exec nextjs npm run test:coverage",
+    "docker:test:nextjs:verbose": "docker-compose exec nextjs npm run test:verbose",
+    "docker:destroy:global": "docker system prune -f --volumes && docker image prune -a -f"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheRobBrennan/heimdall.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TheRobBrennan/heimdall/issues"
+  },
+  "homepage": "https://github.com/TheRobBrennan/heimdall#readme"
+}
