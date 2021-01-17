@@ -2,12 +2,6 @@ import auth0 from "../../auth0/auth0"
 
 export default async function me(req, res) {
   try {
-    const tokenCache = auth0.tokenCache(req, res)
-    const { accessToken } = await tokenCache.getAccessToken()
-
-    // REVISIT: Remove JWT token debugging
-    console.log(`[DEBUG] api/me JWT: ${accessToken}`)
-
     await auth0.handleProfile(req, res)
   } catch (error) {
     console.error(error)
