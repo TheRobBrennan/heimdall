@@ -12,7 +12,7 @@
  *  https://www.notion.so/neo4j-graphql-v1-0-0-alpha-2-d47908030d4e4a0c86babbaef63887d0
  */
 
-// import jwt_decode from "jwt-decode"
+import jwt_decode from "jwt-decode"
 import jwt from "jsonwebtoken"
 
 export const resolvers = {
@@ -24,8 +24,8 @@ export const resolvers = {
         console.log(`token: ${token}`)
 
         // This decodes ANY well-formed JWT and does not vouch for validity or authenticity
-        // const decoded = jwt_decode(token)
-        // console.log(`decoded: ${JSON.stringify(decoded, null, 2)}`)
+        const decoded = jwt_decode(token)
+        console.log(`decoded: ${JSON.stringify(decoded, null, 2)}`)
 
         // Let's verify and see what we get
         var jwksClient = require("jwks-rsa")
