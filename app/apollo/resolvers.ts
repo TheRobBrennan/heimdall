@@ -17,7 +17,7 @@ import { decodeAuthorizationHeader } from "../lib/jwt"
 export const resolvers = {
   Query: {
     async hello(_parent, _args, _context) {
-      // EXAMPLE: Decode our JWT manually. This function currently logs decoded output, but you can imagine that the authorization const might contain an object with appropriate keys
+      // EXAMPLE: Decode our JWT manually. This function currently logs decoded output, but you can imagine this might return some data or do additional processing
       decodeAuthorizationHeader(_context?.req?.headers?.authorization)
       return `Hello. The current timestamp is ${Date.now()}`
     },
