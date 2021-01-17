@@ -9,3 +9,14 @@ Heimdall was one of my favorite characters in the Thor movies - known for his pr
 The goal of this project is to explore using the new alpha release of the [@neo4j/graphql](@neo4j/graphql) library within a [GRANDstack](https://grandstack.io) ([GraphQL](https://graphql.org), [React](https://reactjs.org), [Apollo](https://www.apollographql.com), [Neo4j Database](https://neo4j.com)) application.
 
 Specifically, the main focus will be exploring authorization using [Auth0](https://auth0.com) for user authentication - using the JWT token for `@auth` directives in the GraphQL API that will be built on top of a [Neo4j Database](https://neo4j.com) backend.
+
+## DEMO
+
+![app/__screenshots__/vercel-demo.png](app/__screenshots__/vercel-demo.png)
+
+A [demo](https://heimdall-kappa.vercel.app) application has been deployed using a free [Neo4j Sandbox](https://sandbox.neo4j.com) as the backend database at [https://heimdall-kappa.vercel.app](https://heimdall-kappa.vercel.app)
+
+Please note that these sandboxes do not last forever - ten (10) days at most with active renewal and upkeep.
+
+TL:DR If the demo app is broken, that's why. You can run this locally to your heart's content. 🤣
+)
