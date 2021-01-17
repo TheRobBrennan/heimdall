@@ -8,6 +8,7 @@
     "gran",
     "grandstack",
     "gtag",
+    "hasura",
     "imdb",
     "jwts",
     "lcov",
@@ -16,6 +17,7 @@
     "openid",
     "rating",
     "therobbrennan",
+    "upsert",
     "vercel"
   ]
 }
