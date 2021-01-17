@@ -1,5 +1,5 @@
 import React from "react"
-import TestRenderer from "../Authentication/Login/node_modules/react-test-renderer"
+import TestRenderer from "react-test-renderer"
 import { MockedProvider } from "@apollo/client/testing"
 
 import Title from "./Title"
