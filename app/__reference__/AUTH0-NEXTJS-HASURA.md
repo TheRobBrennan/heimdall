@@ -186,7 +186,7 @@ import auth0 from "./auth0"
 let accessToken = null
 const requestAccessToken = async () => {
   if (accessToken) return
-  const res = await fetch(`${process.env.APP_HOST}/api/session`)
+  const res = await fetch(`api/session`)
   if (res.ok) {
     const json = await res.json()
     accessToken = json.accessToken
