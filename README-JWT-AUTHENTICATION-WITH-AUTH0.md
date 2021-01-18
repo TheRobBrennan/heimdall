@@ -16,9 +16,9 @@ You will need to create:
 
   - Auth0 tenant
   - Auth0 single page application with appropriate callback URLs (NOTE: These will have to be updated with production and any other external URLs)
-    - `Allowed Callback URLs` - `http://localhost:3000/api/callback`
-    - `Allowed Logout URLs` - `http://localhost:3000/, http://localhost:3000/api/callback, http://localhost:3000/api/logout`
-    - `Allowed Web Origins` - `http://localhost:3000/, http://localhost:3000/api/callback`
+    - `Allowed Callback URLs` - `http://localhost:3000/api/callback, https://heimdall-kappa.vercel.app/api/callback, https://*.vercel.app/api/callback`
+    - `Allowed Logout URLs` - `http://localhost:3000/, http://localhost:3000/api/callback, http://localhost:3000/api/logout, https://*.vercel.app, https://*.vercel.app/api/callback, https://*.vercel.app/api/logout`
+    - `Allowed Web Origins` - `http://localhost:3000/, http://localhost:3000/api/callback, https://*.vercel.app, https://*.vercel.app/api/callback`
   - Auth0 API
     - In the pop-up that appears, give the name of the API and the identifier. We can technically give any value. Let's say the name is `heimdall` and the identifier is `https://heimdall.io/demo`
     - The API audience will be `https://heimdall.io/demo`
