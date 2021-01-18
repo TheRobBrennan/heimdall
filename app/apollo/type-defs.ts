@@ -50,6 +50,13 @@ export const typeDefs = `
     hello: String!,
 
     """
+    A sample query to verify that our GraphQL server is online.
+
+    It processes an authorized GraphQL request and returns a response.
+    """
+    helloAuth: String!,
+
+    """
     A sample query to return details for the authenticated user currently logged in to our system
     """
     currentUser: AuthenticatedUser
