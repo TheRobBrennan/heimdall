@@ -27,7 +27,7 @@ export const typeDefs = `
   }
 
   type User {
-    userId: ID!
+    userId: ID! @autogenerate
     name: String
     reviews: [Review] @relationship(type: "WROTE", direction: "OUT")
   }
