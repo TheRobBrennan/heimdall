@@ -20,16 +20,11 @@ export const typeDefs = `
     count: Int!
   }
 
-  type AuthenticatedUser {
-    userId: ID! @autogenerate
-    name: String
-    sub: String
-  }
-
   type User {
     userId: ID! @autogenerate
     name: String
     reviews: [Review] @relationship(type: "WROTE", direction: "OUT")
+    sub: String
   }
 
   type Review {
@@ -59,10 +54,10 @@ export const typeDefs = `
     """
     A sample query to return details for the authenticated user currently logged in to our system
     """
-    currentUser: AuthenticatedUser
+    me: User
       @cypher(
         statement: """
-        MATCH (u:AuthenticatedUser {sub: $jwt.sub})
+        MATCH (u:User {sub: $jwt.sub})
         RETURN u
         """
     ),
