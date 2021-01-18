@@ -21,7 +21,7 @@ export const typeDefs = `
   }
 
   type AuthenticatedUser {
-    userId: ID!
+    userId: ID! @autogenerate
     name: String
     sub: String
   }
