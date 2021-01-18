@@ -94,26 +94,6 @@ Once you have authenticated through [Auth0](https://auth0.com), you will see the
 
 ![app/__screenshots__/nextjs-web-default-page-authenticated-user.png](app/__screenshots__/nextjs-web-default-page-authenticated-user.png)
 
-#### Additional scripts
-
-Additionally, the following scripts have been created for managing your Docker environment based on the version of Neo4j you are using.
-
-Neo4j v3.5.x:
-
-- `dev` - This starts the Dockerized project with services defined in `docker-compose.yml`
-- `dev:clean` - This builds fresh images and containers for the Dockerized project with services defined in `docker-compose.yml`
-- `dev:stop` - This stops the Dockerized project with services defined in `docker-compose.yml`
-
-Neo4j v4.x.x:
-
-- `dev:v4` - This starts the Dockerized project with services defined in `docker-compose-neo4j-v4.x.yml`
-- `dev:v4:clean` - This builds fresh images and containers for the Dockerized project with services defined in `docker-compose-neo4j-v4.x.yml`
-- `dev:v4:stop` - This stops the Dockerized project with services defined in `docker-compose-neo4j-v4.x.yml`
-
-Docker
-
-- `docker:destroy:global` - **WARNING: This command will delete all Docker images, containers, networks, and volumes for ALL Dockerized applications on your system**
-
 ### Seed your Neo4j database with sample data
 
 Once your Dockerized project is running, you can navigate to the [Neo4j Browser](https://neo4j.com/developer/neo4j-browser/) at [http://localhost:7474/browser/](http://localhost:7474/browser/).
