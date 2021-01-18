@@ -6,6 +6,13 @@ export const decodeAuthorizationHeader = async (authorizationHeader) => {
     // Use array destructuring to disregard the first item. We only care about the JWT.
     const [_, token] = authorizationHeader.split("Bearer ")
 
+    // DEBUG
+    console.log(`
+    [DEBUG] Generic decodeAuthorizationHeader received authorization header:
+
+    ${authorizationHeader}
+    `)
+
     // This decodes ANY well-formed JWT and does not vouch for validity or authenticity
     const decoded = decodeJWT(token)
     console.log(
