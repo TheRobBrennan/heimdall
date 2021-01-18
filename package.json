@@ -1,8 +1,16 @@
 {
   "name": "heimdall",
   "version": "0.0.0",
-  "description": "",
-  "keywords": [],
+  "description": "This project builds upon my Next.js GRANDstack starter and incorporates Auth0 for user authentication.",
+  "keywords": [
+    "nextjs",
+    "GRANDstack",
+    "neo4j",
+    "react",
+    "apollo",
+    "auth0",
+    "jwt"
+  ],
   "author": "Rob Brennan <rob@therobbrennan.com> (therobbrennan.com)",
   "license": "ISC",
   "scripts": {
