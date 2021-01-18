@@ -20,6 +20,12 @@ export const typeDefs = `
     count: Int!
   }
 
+  type AuthenticatedUser {
+    userId: ID!
+    name: String
+    sub: String
+  }
+
   type User {
     userId: ID!
     name: String
@@ -42,6 +48,17 @@ export const typeDefs = `
     It returns a friendly greeting with the current timestamp.
     """
     hello: String!,
+
+    """
+    A sample query to return details for the authenticated user currently logged in to our system
+    """
+    currentUser: AuthenticatedUser
+      @cypher(
+        statement: """
+        MATCH (u:AuthenticatedUser {sub: $jwt.sub})
+        RETURN u
+        """
+    ),
 
     """
     A sample query to return the total number of users in our system
