@@ -14,10 +14,10 @@
   "author": "Rob Brennan <rob@therobbrennan.com> (therobbrennan.com)",
   "license": "ISC",
   "scripts": {
+    "nuke": "clear && npm run docker:destroy:global && npm run docker:start",
     "analyze": "cd app && npm run analyze",
     "deploy": "vercel",
     "dev": "npm run docker:start",
-    "dev:clean": "npm run docker:build && npm run docker:start",
     "dev:stop": "npm run docker:stop",
     "start": "cd app && npm run dev",
     "test": "npm run docker:test:nextjs",
