@@ -51,6 +51,7 @@ First, copy `app/.env.sample` to `app/.env` and update with your [Auth0](https:/
 GOOGLE_ANALYTICS_TRACKING_ID=UA-156456153-7
 
 # Auth0 API
+## See ./README-JWT-AUTHENTICATION-WITH-AUTH0.md for more on AUTH0_AUDIENCE
 AUTH0_AUDIENCE=https://heimdall.io/demo
 
 # Auth0 Application
@@ -62,22 +63,17 @@ REDIRECT_URI=http://localhost:3000/api/callback
 POST_LOGOUT_REDIRECT_URI=http://localhost:3000/
 SESSION_COOKIE_SECRET=BXyv4qDtBKYxJtLopfY7nj75sJg3p2Ka
 
-# Neo4j v3.5.x / v4.x.x [DOCKER]
+# Neo4j v4.x.x Community Edition [DOCKER]
 NEO4J_URI=bolt://neo4j:7687
 NEO4J_USER=neo4j
 NEO4J_PASSWORD=letmein
+# Additional settings for Neo4j v4.x.x Community and Enterprise Editions
+#NEO4J_ENCRYPTED=true
+#NEO4J_DATABASE=neo4j
 # ---------------------------------------------------------------------------
 ```
 
-Once you have created a `app/.env` file, you can run the project with a single command to build the Docker services defined in `./docker-compose.yml` and start your application:
-
-```sh
-# Run the project using Neo4j v3.5.x
-$ npm run dev
-
-# ALTERNATIVE: Run the project using Neo4j v4.x.x
-$ npm run dev:v4
-```
+Once you have created a `app/.env` file, you can run the project with a single command to build the Docker services defined in `./docker-compose.yml` and start your application with `npm run dev`
 
 You should be able to access the following URLs:
 
