@@ -19,7 +19,6 @@ A [demo](https://heimdall-kappa.vercel.app) application has been deployed using 
 Please note that these sandboxes do not last forever - ten (10) days at most with active renewal and upkeep.
 
 TL:DR If the demo app is broken, that's why. You can run this locally to your heart's content. 🤣
-)
 
 ## Getting started
 
