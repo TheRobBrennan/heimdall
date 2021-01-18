@@ -26,7 +26,7 @@ To run this application as intended, you will need to:
 
 - Create a free Auth0 account to use as an authentication provider for JWT tokens
 - Build and run the Dockerized project
-- Seed your Neo4j database with sample data
+- Manually seed your Neo4j database with sample data
 
 ### Create a free Auth0 account to use as an authentication provider for JWT tokens
 
@@ -90,15 +90,37 @@ Once you have authenticated through [Auth0](https://auth0.com), you will see the
 
 ![app/__screenshots__/nextjs-web-default-page-authenticated-user.png](app/__screenshots__/nextjs-web-default-page-authenticated-user.png)
 
-### Seed your Neo4j database with sample data
+### Manually seed your Neo4j database with sample data
 
-Once your Dockerized project is running, you can navigate to the [Neo4j Browser](https://neo4j.com/developer/neo4j-browser/) at [http://localhost:7474/browser/](http://localhost:7474/browser/).
+Once your Dockerized project is running, you can navigate to the [Neo4j Browser](https://neo4j.com/developer/neo4j-browser/) at [http://localhost:7474/browser/](http://localhost:7474/browser/)
 
-Open up `./app/neo4j/__seed__/db.cypher` so you can copy and paste the example Cypher statements into the Cypher window and press `play` to seed your database with example data.
+Log in with the username `neo4j` and password `letmein`:
+
+![app/__screenshots__/neo4j-browser-localhost-sign-in.png](app/__screenshots__/neo4j-browser-localhost-sign-in.png)
+
+Open up `./app/neo4j/__seed__/db.cypher` so you can copy and paste the example Cypher statements:
+
+![app/__screenshots__/vscode-view-cypher-database-seed.png](app/__screenshots__/vscode-view-cypher-database-seed.png)
+
+Copy the Cypher commands and paste them into the Cypher window:
+
+![app/__screenshots__/neo4j-browser-localhost-copy-cypher-text-00.png](app/__screenshots__/neo4j-browser-localhost-copy-cypher-text-00.png)
+
+![app/__screenshots__/neo4j-browser-localhost-copy-cypher-text-01.png](app/__screenshots__/neo4j-browser-localhost-copy-cypher-text-01.png)
+
+Press `play` to execute the commands:
+
+![app/__screenshots__/neo4j-browser-localhost-copy-cypher-text-02.png](app/__screenshots__/neo4j-browser-localhost-copy-cypher-text-02.png)
+
+Click on the database information icon in the left sidebar:
+
+![app/__screenshots__/neo4j-browser-localhost-copy-cypher-text-03.png](app/__screenshots__/neo4j-browser-localhost-copy-cypher-text-03.png)
+
+Click on a `Node Label` or `Relationship Type` to verify data has been created:
+
+![app/__screenshots__/neo4j-browser-localhost-copy-cypher-text-04.png](app/__screenshots__/neo4j-browser-localhost-copy-cypher-text-04.png)
 
 #### EXAMPLE: Query using GraphIQL
-
-If you open [http://localhost:3000/api/graphql](http://localhost:3000/api/graphql), you should see the GraphIQL IDE.
 
 Try running the following query:
 
@@ -108,11 +130,15 @@ Try running the following query:
 }
 ```
 
-It should respond with something like:
+If you open [http://localhost:3000/api/graphql](http://localhost:3000/api/graphql), you should see the GraphIQL IDE.
+
+Create your query on the left-hand side and then press `Play` to see the result.
+
+It should look something like this:
 
 ![app/__screenshots__/graphiql-query-example-hello.png](app/__screenshots__/graphiql-query-example-hello.png)
 
-If you add valid JWT token to `{"Authorization": "Bearer <your-JWT-token>"}` in the `HTTP Headers` section for the above query:
+If you add a valid JWT token to `{"Authorization": "Bearer <your-JWT-token>"}` in the `HTTP Headers` section (located just below your query):
 
 ```json
 {
