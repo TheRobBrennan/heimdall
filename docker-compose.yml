@@ -21,7 +21,7 @@ services:
 
   neo4j: # Official image available at https://hub.docker.com/_/neo4j
     build: ./neo4j/v4.x.x
-    container_name: "heimdall-neo4j-v4.x.x"
+    container_name: "heimdall-neo4j"
     ports:
       - 7474:7474 # HTTP
       - 7473:7473 # HTTPS
