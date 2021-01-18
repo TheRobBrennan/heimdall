@@ -12,6 +12,8 @@ CREATE CONSTRAINT ON (node:Business) ASSERT (node.businessId) IS UNIQUE;
 
 CALL db.awaitIndexes(300);
 
+CREATE (n:AuthenticatedUser {userId: "1", name: "test", sub: "google-oauth2|116058668302290861810"});
+
 UNWIND [{reviewId:"r4", properties:{date:date('2017-11-13'), text:"", stars:5}},
 {reviewId:"r8", properties:{date:date('2018-08-11'), text:"", stars:5}},
 {reviewId:"r11", properties:{date:date('2016-03-04'), text:"Awesome full-service car wash. Love Ducky's!", stars:5}},
