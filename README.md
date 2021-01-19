@@ -89,7 +89,7 @@ Once you have authenticated through [Auth0](https://auth0.com), you will see the
 
 ![app/__screenshots__/nextjs-web-default-page-authenticated-user.png](app/__screenshots__/nextjs-web-default-page-authenticated-user.png)
 
-#### [REFERENCE] seed your Neo4j database with sample data
+#### [REFERENCE] Seed your Neo4j database with sample data
 
 Your Dockerized project automatically creates a Neo4j database automatically populated with sample data for you.
 
