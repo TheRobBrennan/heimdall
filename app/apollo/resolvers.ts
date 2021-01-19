@@ -25,8 +25,8 @@ export const resolvers = {
     async helloAuth(_parent, _args, _context) {
       try {
         // Use our Auth0 library to decode our authorization header
-        const decodedJWT = await decodeAuthorizationHeader(
-          _context?.req?.headers?.authorization
+        const decodedJWT = <Auth0JWT>(
+          await decodeAuthorizationHeader(_context?.req?.headers?.authorization)
         )
         const result = decodedJWT
           ? `Hello, authenticated user ${decodedJWT?.sub}`
