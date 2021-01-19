@@ -40,17 +40,17 @@ services:
     volumes:
       - neo4j_v4.x.x_data:/var/lib/neo4j
 
-    # Uncomment the following section if you want to persist Neo4j settings and data
-    # volumes:
-    #   # Stores the authentication and roles for each database, as well as the actual data contents of each database instance (in graph.db folder)
-    #   - ./neo4j/tmp/data:/data
+      # Uncomment the following section if you want to persist Neo4j settings and data
+      # volumes:
+      #   # Stores the authentication and roles for each database, as well as the actual data contents of each database instance (in graph.db folder)
+      #   - ./neo4j/tmp/data:/data
 
-    #   # Outputting the Neo4j logs to a place outside the container ensures we can troubleshoot any errors in Neo4j, even if the container crashes.
-    #   - ./neo4j/tmp/logs:/logs
+      #   # Outputting the Neo4j logs to a place outside the container ensures we can troubleshoot any errors in Neo4j, even if the container crashes.
+      #   - ./neo4j/tmp/logs:/logs
 
-    #   # Binds the import directory, so we can copy CSV or other flat files into that directory for importing into Neo4j.
-    #   # Load scripts for importing that data can also be placed in this folder for us to execute.
-    #   - ./neo4j/tmp/import:/var/lib/neo4j/import
+      # Binds the import directory, so we can copy CSV or other flat files into that directory for importing into Neo4j.
+      # Load scripts for importing that data can also be placed in this folder for us to execute.
+      - ./neo4j/__seed__:/var/lib/neo4j/import
 
     #   # Sets up our plugins directory. If we want to include any custom extensions or add the Neo4j APOC or graph algorithms library,
     #   # exposing this directory simplifies the process of copying the jars for Neo4j to access.

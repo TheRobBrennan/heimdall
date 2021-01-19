@@ -26,7 +26,6 @@ To run this application as intended, you will need to:
 
 - Create a free Auth0 account to use as an authentication provider for JWT tokens
 - Build and run the Dockerized project
-- Manually seed your Neo4j database with sample data
 
 ### Create a free Auth0 account to use as an authentication provider for JWT tokens
 
@@ -90,19 +89,23 @@ Once you have authenticated through [Auth0](https://auth0.com), you will see the
 
 ![app/__screenshots__/nextjs-web-default-page-authenticated-user.png](app/__screenshots__/nextjs-web-default-page-authenticated-user.png)
 
-### Manually seed your Neo4j database with sample data
+#### [REFERENCE] Seed your Neo4j database with sample data
 
-Once your Dockerized project is running, you can navigate to the [Neo4j Browser](https://neo4j.com/developer/neo4j-browser/) at [http://localhost:7474/browser/](http://localhost:7474/browser/)
+Your Dockerized project automatically creates a Neo4j database automatically populated with sample data for you.
+
+If you would like to manually go through the process of creating sample data, please navigate to the [Neo4j Browser](https://neo4j.com/developer/neo4j-browser/) at [http://localhost:7474/browser/](http://localhost:7474/browser/)
 
 Log in with the username `neo4j` and password `letmein`:
 
 ![app/__screenshots__/neo4j-browser-localhost-sign-in.png](app/__screenshots__/neo4j-browser-localhost-sign-in.png)
 
-Open up `./app/neo4j/__seed__/db.cypher` so you can copy and paste the example Cypher statements:
+Open up `./neo4j/__seed__/db.cypher` so you can copy and paste the example Cypher statements:
 
 ![app/__screenshots__/vscode-view-cypher-database-seed.png](app/__screenshots__/vscode-view-cypher-database-seed.png)
 
-Copy the Cypher commands and paste them into the Cypher window:
+Before you copy the Cypher commands and paste them into the Cypher window to execute, be sure to run the `MATCH (n) DETACH DELETE (n)` Cypher command so you do not have duplicate data.
+
+Once you've done that, copy and paste the example Cypher statements from the `db.cypher` file:
 
 ![app/__screenshots__/neo4j-browser-localhost-copy-cypher-text-00.png](app/__screenshots__/neo4j-browser-localhost-copy-cypher-text-00.png)
 
