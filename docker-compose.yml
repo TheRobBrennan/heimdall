@@ -50,7 +50,7 @@ services:
 
       # Binds the import directory, so we can copy CSV or other flat files into that directory for importing into Neo4j.
       # Load scripts for importing that data can also be placed in this folder for us to execute.
-      - ./app/neo4j/__seed__:/var/lib/neo4j/import
+      - ./neo4j/__seed__:/var/lib/neo4j/import
 
     #   # Sets up our plugins directory. If we want to include any custom extensions or add the Neo4j APOC or graph algorithms library,
     #   # exposing this directory simplifies the process of copying the jars for Neo4j to access.
