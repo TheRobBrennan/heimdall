@@ -15,6 +15,7 @@
   "license": "ISC",
   "scripts": {
     "analyze": "cd app && npm run analyze",
+    "build": "cd app && npm run build",
     "deploy": "vercel",
     "dev": "npm run docker:start",
     "dev:clean": "clear && npm run docker:build && npm run docker:start",
