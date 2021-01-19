@@ -14,11 +14,7 @@ Specifically, the main focus will be exploring authorization using [Auth0](https
 
 ![app/__screenshots__/vercel-demo.png](app/__screenshots__/vercel-demo.png)
 
-A [demo](https://heimdall-kappa.vercel.app) application has been deployed using a free [Neo4j Sandbox](https://sandbox.neo4j.com) as the backend database at [https://heimdall-kappa.vercel.app](https://heimdall-kappa.vercel.app)
-
-Please note that these sandboxes do not last forever - ten (10) days at most with active renewal and upkeep.
-
-TL:DR If the demo app is broken, that's why. You can run this locally to your heart's content. 🤣
+A [demo](https://heimdall-kappa.vercel.app) application has been deployed at [https://heimdall-kappa.vercel.app](https://heimdall-kappa.vercel.app)
 
 ## Getting started
 
