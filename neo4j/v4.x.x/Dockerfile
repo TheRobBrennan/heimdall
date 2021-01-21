@@ -21,4 +21,7 @@ EXPOSE 7474 7473 7687
 COPY wrapper.sh wrapper.sh
 RUN chmod +x wrapper.sh
 
+# Copy import file(s)
+COPY ./__seed__/*.cypher /var/lib/neo4j/import/
+
 ENTRYPOINT ["./wrapper.sh"]
