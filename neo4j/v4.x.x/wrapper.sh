@@ -1,11 +1,11 @@
 #!/bin/bash
 
+# THANK YOU! Special shout-out to @marcellodesales on GitHub
+# https://github.com/marcellodesales/neo4j-with-cypher-seed-docker/blob/master/wrapper.sh for such a great example script
+
 # Define our Neo4j variables
 NEO4J_USER=neo4j
 NEO4J_PASSWORD=letmein
-
-# THANK YOU! Special shout-out to @marcellodesales on GitHub
-# https://github.com/marcellodesales/neo4j-with-cypher-seed-docker/blob/master/wrapper.sh for such a great example script
 
 # Log the info with the same format as NEO4J outputs
 log_info() {
@@ -26,8 +26,9 @@ set -m
 /docker-entrypoint.sh neo4j &
 
 # Wait for Neo4j
-log_info "Waiting for Neo4j to start..."
-wget --quiet --tries=10 --waitretry=2 -O /dev/null http://localhost:7474
+log_info "Checking to see if Neo4j has started..."
+wget --quiet --tries=10 --waitretry=10 -O /dev/null http://localhost:7474
+log_info "Neo4j has started 🤓"
 
 # Import data
 log_info  "Loading and importing Cypher file(s)..."
@@ -35,11 +36,10 @@ log_info  "Loading and importing Cypher file(s)..."
 for cypherFile in /var/lib/neo4j/import/*.cypher; do
     log_info "Processing ${cypherFile}..."
     contents=$(cat ${cypherFile})
-    # cypher-shell -u ${NEO4J_USER} -p ${NEO4J_PASSWORD} -a bolt://localhost:7687 "${contents}"
-    cat ${cypherFile} | cypher-shell -u ${NEO4J_USER} -p ${NEO4J_PASSWORD} -a bolt://0.0.0.0:7687 --format plain
+    cat ${cypherFile} | cypher-shell -u ${NEO4J_USER} -p ${NEO4J_PASSWORD} --format plain
 done
 
-log_info  "...finished loading data."
+log_info  "Finished loading data."
 
 # now we bring the primary process back into the foreground
 # and leave it there
