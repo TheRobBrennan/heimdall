@@ -97,7 +97,7 @@ Log in with the username `neo4j` and password `letmein`:
 
 ![app/__screenshots__/neo4j-browser-localhost-sign-in.png](app/__screenshots__/neo4j-browser-localhost-sign-in.png)
 
-Open up `./neo4j/__seed__/db.cypher` so you can copy and paste the example Cypher statements:
+Open up `./neo4j/v4.x.x/__seed__/db.cypher` so you can copy and paste the example Cypher statements:
 
 ![app/__screenshots__/vscode-view-cypher-database-seed.png](app/__screenshots__/vscode-view-cypher-database-seed.png)
 
