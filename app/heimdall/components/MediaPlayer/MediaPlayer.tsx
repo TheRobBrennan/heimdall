@@ -1,8 +1,9 @@
-import { useRef, useEffect } from "react"
+import { useRef } from "react"
 import Plyr from "plyr"
 
 export const MediaPlayer = () => {
   const playerRef = useRef(null)
+  // See https://github.com/sampotts/plyr for Plyr demo code, features, and functionality
   const player = new Plyr("#player")
 
   return (
