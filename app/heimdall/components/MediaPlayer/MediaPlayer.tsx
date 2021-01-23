@@ -60,10 +60,7 @@ export const MediaPlayer = () => {
           />
 
           {/* Fallback for browsers that don't support the <video> tag */}
-          <a
-            href="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4"
-            download
-          >
+          <a href="/__demo__/View_From_A_Blue_Moon_Trailer-576p.mp4" download>
             Download
           </a>
         </video>

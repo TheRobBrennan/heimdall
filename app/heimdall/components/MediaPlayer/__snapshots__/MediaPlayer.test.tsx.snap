@@ -33,7 +33,7 @@ exports[`The MediaPlayer component should render 1`] = `
       />
       <a
         download={true}
-        href="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4"
+        href="/__demo__/View_From_A_Blue_Moon_Trailer-576p.mp4"
       >
         Download
       </a>
