@@ -12,7 +12,7 @@ export const MediaPlayer = () => {
           controls
           // @ts-ignore Plyr property 'crossorigin' does not exist on type 'DetailedHTMLProps<VideoHTMLAttributes<HTMLVideoElement>, HTMLVideoElement>'
           crossorigin
-          // playsinline
+          playsinline
           poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg"
         >
           <source
@@ -35,7 +35,7 @@ export const MediaPlayer = () => {
           />
 
           {/* Captions */}
-          {/* <track
+          <track
             kind="captions"
             label="English"
             srcLang="en"
@@ -47,7 +47,7 @@ export const MediaPlayer = () => {
             label="Français"
             srcLang="fr"
             src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.fr.vtt"
-          /> */}
+          />
 
           {/* Fallback for browsers that don't support the <video> tag */}
           <a
