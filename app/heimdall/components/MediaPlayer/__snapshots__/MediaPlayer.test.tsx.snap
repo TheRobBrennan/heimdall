@@ -12,6 +12,11 @@ exports[`The MediaPlayer component should render 1`] = `
       crossorigin={true}
       playsinline={true}
       poster="/__demo__/View_From_A_Blue_Moon_Trailer-HD.jpg"
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
     >
       <source
         size="576"
