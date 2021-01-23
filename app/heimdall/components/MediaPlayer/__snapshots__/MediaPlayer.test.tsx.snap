@@ -11,34 +11,24 @@ exports[`The MediaPlayer component should render 1`] = `
       controls={true}
       crossorigin={true}
       playsinline={true}
-      poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg"
+      poster="/__demo__/View_From_A_Blue_Moon_Trailer-HD.jpg"
     >
       <source
         size="576"
-        src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4"
-        type="video/mp4"
-      />
-      <source
-        size="720"
-        src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4"
-        type="video/mp4"
-      />
-      <source
-        size="1080"
-        src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4"
+        src="/__demo__/View_From_A_Blue_Moon_Trailer-576p.mp4"
         type="video/mp4"
       />
       <track
         default={true}
         kind="captions"
         label="English"
-        src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.en.vtt"
+        src="/__demo__/captions/View_From_A_Blue_Moon_Trailer-HD.en.vtt"
         srcLang="en"
       />
       <track
         kind="captions"
         label="Français"
-        src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.fr.vtt"
+        src="/__demo__/captions/View_From_A_Blue_Moon_Trailer-HD.fr.vtt"
         srcLang="fr"
       />
       <a
