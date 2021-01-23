@@ -1,4 +1,8 @@
+import { useRef } from "react"
+
 export const MediaPlayer = () => {
-  return <div>PLACEHOLDER: MediaPlayer</div>
+  const playerRef = useRef(null)
+
+  return <div className={"player-container"}>PLACEHOLDER: MediaPlayer</div>
 }
 export default MediaPlayer
