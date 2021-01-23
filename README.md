@@ -12,12 +12,6 @@ The goal of this project is to explore using the new alpha release of the [@neo4
 
 Specifically, the main focus will be exploring authorization using [Auth0](https://auth0.com) for user authentication - using the JWT token for `@auth` directives in the GraphQL API that will be built on top of a [Neo4j Database](https://neo4j.com) backend.
 
-## DEMO
-
-![app/__screenshots__/vercel-demo.png](app/__screenshots__/vercel-demo.png)
-
-A [demo](https://heimdall-kappa.vercel.app) application has been deployed at [https://heimdall-kappa.vercel.app](https://heimdall-kappa.vercel.app)
-
 ## Getting started
 
 To run this application as intended, you will need to:
