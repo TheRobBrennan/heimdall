@@ -17,6 +17,7 @@ export const MediaPlayer = () => {
           crossorigin
           playsinline
           poster="/__demo__/View_From_A_Blue_Moon_Trailer-HD.jpg"
+          style={{ width: "100%" }}
         >
           <source
             src="/__demo__/View_From_A_Blue_Moon_Trailer-576p.mp4"
