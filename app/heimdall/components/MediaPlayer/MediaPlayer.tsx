@@ -2,13 +2,15 @@ import { useRef } from "react"
 import Plyr from "plyr"
 
 export const MediaPlayer = () => {
+  const playerId = "player"
   const playerRef = useRef(null)
+
   // See https://github.com/sampotts/plyr for Plyr demo code, features, and functionality
-  const player = new Plyr("#player")
+  const player = new Plyr(`#${playerId}`)
 
   return (
     <div className={"player-container"}>
-      <div id={"player"} ref={playerRef}>
+      <div id={playerId} ref={playerRef}>
         <video
           controls
           // @ts-ignore Plyr property 'crossorigin' does not exist on type 'DetailedHTMLProps<VideoHTMLAttributes<HTMLVideoElement>, HTMLVideoElement>'
