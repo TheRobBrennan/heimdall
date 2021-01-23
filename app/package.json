@@ -1,7 +1,7 @@
 {
-  "name": "nextjs-grandstack-starter",
+  "name": "heimdall",
   "version": "0.0.0",
-  "description": "GRANDstack starter powered by Next.js",
+  "description": "This project builds upon my Next.js GRANDstack starter and incorporates Auth0 for user authentication.",
   "keywords": [],
   "author": "Rob Brennan <rob@therobbrennan.com> (therobbrennan.com)",
   "license": "ISC",
@@ -46,6 +46,7 @@
     "next": "^10.0.5",
     "next-compose-plugins": "^2.2.0",
     "next-images": "^1.4.1",
+    "plyr": "^3.6.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "recharts": "^1.8.5"

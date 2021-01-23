@@ -4,6 +4,7 @@ import Layout from "../heimdall/layout/Layout"
 import Dashboard from "../heimdall/components/Dashboard/Dashboard"
 import Login from "../heimdall/components/Authentication/Login/Login"
 import Logout from "../heimdall/components/Authentication/Logout/Logout"
+import MediaPlayer from "../heimdall/components/MediaPlayer/MediaPlayer"
 
 import { useFetchUser } from "../auth0/user"
 
@@ -28,6 +29,8 @@ const DefaultPage: NextPage = () => {
     <Layout>
       <>
         <Logout />
+        <MediaPlayer />
+        <hr />
         <Dashboard />
       </>
     </Layout>
