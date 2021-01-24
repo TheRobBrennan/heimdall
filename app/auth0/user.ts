@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import fetch from "cross-fetch"
 
 export type Auth0User = {
   given_name: string
