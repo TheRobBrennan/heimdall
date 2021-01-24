@@ -38,7 +38,7 @@ export const decodeAuth0JWT = async (token) => {
           return resolve(decoded)
         }
       )
-    } catch (e) {
+    } catch (e) /* istanbul ignore next */ {
       console.error(`Unable to decode Auth0 JWT: ${token}\n\t${e}`)
       return reject(e)
     }
