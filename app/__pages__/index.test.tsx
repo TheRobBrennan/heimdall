@@ -1,17 +1,19 @@
-import React from "react"
-import TestRenderer from "react-test-renderer"
-
-import DefaultPage from "../pages/index"
+import * as React from "react"
+import { cleanup, render } from "@testing-library/react"
 import { MockedProvider } from "@apollo/client/testing"
 
+import Page from "../pages/index"
+
 describe("The default page", () => {
-  it(`should render`, () => {
-    // Verify success state
-    const component = TestRenderer.create(
+  afterEach(cleanup)
+
+  it("should render without children", () => {
+    const { asFragment } = render(
       <MockedProvider mocks={[]} addTypename={false}>
-        <DefaultPage />
+        <Page />
       </MockedProvider>
     )
-    expect(component.toJSON()).toMatchSnapshot()
+
+    expect(asFragment).toMatchSnapshot()
   })
 })

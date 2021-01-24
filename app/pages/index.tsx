@@ -8,12 +8,7 @@ import Debug from "../heimdall/components/Debug/Debug"
 import { useFetchUser } from "../auth0/user"
 
 const DefaultPage: NextPage = () => {
-  const { user, loading } = useFetchUser({ required: true })
-
-  // Display our loading component
-  if (loading) {
-    return <div>Loading...</div>
-  }
+  const { user } = useFetchUser({ required: true })
 
   // Dashboard will display for authenticated users only
   return (
