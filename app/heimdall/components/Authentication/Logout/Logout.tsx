@@ -1,18 +1,16 @@
-import React from "react"
-import Router from "next/router"
+import * as React from "react"
 
 // Material UI
 import Button from "@material-ui/core/Button"
 
-const Logout = () => {
+export interface ILogoutProps {
+  onLogout(): void
+}
+
+const Logout: React.FC<ILogoutProps> = ({ onLogout }) => {
   return (
     <>
-      <Button
-        variant="contained"
-        onClick={() => {
-          Router.push("api/logout")
-        }}
-      >
+      <Button variant="contained" onClick={onLogout}>
         Log out
       </Button>
     </>
