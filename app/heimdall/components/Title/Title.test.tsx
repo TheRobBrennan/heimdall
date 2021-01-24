@@ -1,27 +1,32 @@
-import React from "react"
-import TestRenderer from "react-test-renderer"
+import * as React from "react"
+import { cleanup, render } from "@testing-library/react"
 import { MockedProvider } from "@apollo/client/testing"
 
-import Title from "./Title"
+import Component, { ITitleProps as Props } from "./Title"
 
 describe("GRANDstack Title component", () => {
+  afterEach(cleanup)
+
   describe("should render", () => {
-    it("without any children", () => {
-      const component = TestRenderer.create(
+    it("without children", () => {
+      const { asFragment } = render(
         <MockedProvider mocks={[]} addTypename={false}>
-          <Title />
+          <Component />
         </MockedProvider>
       )
-      expect(component.toJSON()).toMatchSnapshot()
+
+      expect(asFragment).toMatchSnapshot()
     })
     it("with a supplied title", () => {
       const title = "A GRANDstack Title"
-      const component = TestRenderer.create(
+
+      const { asFragment } = render(
         <MockedProvider mocks={[]} addTypename={false}>
-          <Title>{title}</Title>
+          <Component>{title}</Component>
         </MockedProvider>
       )
-      expect(component.toJSON()).toMatchSnapshot()
+
+      expect(asFragment).toMatchSnapshot()
     })
   })
 })
