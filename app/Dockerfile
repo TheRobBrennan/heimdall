@@ -1,4 +1,4 @@
-FROM node:14.15.1
+FROM node:14.15.4
 
 ENV PORT 3000
 
@@ -7,6 +7,10 @@ RUN mkdir -p /usr/src/app
 
 # Define the working directory of our Docker container
 WORKDIR /usr/src/app
+
+# OPTIONAL: Use Pacific time (PST/PDT) instead of UTC
+RUN ln -fs /usr/share/zoneinfo/PST8PDT /etc/localtime
+RUN dpkg-reconfigure -f noninteractive tzdata
 
 # Install dependencies
 COPY package*.json /usr/src/app/
