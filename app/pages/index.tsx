@@ -3,7 +3,6 @@ import { NextPage } from "next"
 import Layout from "../heimdall/layout/Layout"
 import Dashboard from "../heimdall/components/Dashboard/Dashboard"
 import ReactPlayerDemo from "../heimdall/components/ReactPlayer/ReactPlayerDemo"
-import Debug from "../heimdall/components/Debug/Debug"
 
 import { useFetchUser } from "../auth0/user"
 
@@ -17,8 +16,6 @@ const DefaultPage: NextPage = () => {
         <div style={{ display: "block", margin: "auto" }}>
           <ReactPlayerDemo />
         </div>
-        <hr />
-        <Debug user={user} />
         <hr />
         <Dashboard />
       </>
