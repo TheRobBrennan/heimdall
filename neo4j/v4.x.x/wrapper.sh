@@ -10,8 +10,8 @@ NEO4J_PASSWORD=letmein
 # Log the info with the same format as NEO4J outputs
 log_info() {
   # https://www.howtogeek.com/410442/how-to-display-the-date-and-time-in-the-linux-terminal-and-use-it-in-bash-scripts/
-  # printf '%s %s\n' "$(date -u +"%Y-%m-%d %H:%M:%S:%3N%z") INFO  Wrapper: $1"  # UTC
-  printf '%s %s\n' "$(date +"%Y-%m-%d %H:%M:%S:%3N%z") INFO  Wrapper: $1"  # PST/PDT
+  # printf '%s %s\n' "$(date -u +"%Y-%m-%d %H:%M:%S:%3N%z") INFO  Wrapper: $1"  # Display UTC time
+  printf '%s %s\n' "$(date +"%Y-%m-%d %H:%M:%S:%3N%z") INFO  Wrapper: $1"  # Display local time (PST/PDT)
   return
 }
 
