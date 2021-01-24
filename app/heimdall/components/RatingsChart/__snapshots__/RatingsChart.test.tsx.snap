@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GRANDstack RatingsChart component when invoked WITH a specific height and size should render the Ratings Distribution chart after receiving data 1`] = `[Function]`;
+
+exports[`GRANDstack RatingsChart component when invoked WITHOUT a specific height or size should render the Ratings Distribution chart after receiving data 1`] = `[Function]`;
