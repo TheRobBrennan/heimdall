@@ -9,6 +9,8 @@ import { dependencies } from "../../../package.json"
 import { useStyles } from "./Header.styles"
 import { AppBar, CssBaseline, Toolbar, Typography } from "@material-ui/core"
 
+import Logout from "../../components/Authentication/Logout/Logout"
+
 const Header: FC = () => {
   const classes = useStyles()
 
@@ -84,6 +86,7 @@ const Header: FC = () => {
           >
             {APP_TITLE}
           </Typography>
+          <Logout />
         </Toolbar>
       </AppBar>
     </>
