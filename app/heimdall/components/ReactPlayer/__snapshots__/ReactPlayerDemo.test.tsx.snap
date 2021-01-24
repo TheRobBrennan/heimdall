@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The ReactPlayerDemo component should render 1`] = `
+<div
+  style={
+    Object {
+      "height": "360px",
+      "width": "640px",
+    }
+  }
+/>
+`;
