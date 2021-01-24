@@ -1,5 +1,5 @@
 import * as React from "react"
-import { cleanup, fireEvent, render } from "@testing-library/react"
+import { cleanup, render } from "@testing-library/react"
 import { MockedProvider } from "@apollo/client/testing"
 
 import Component from "./Dashboard"
