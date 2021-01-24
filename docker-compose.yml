@@ -37,7 +37,7 @@ services:
       # Please set 'dbms.allow_upgrade' to 'true' in your configuration file and try again. Detailed description: Upgrade is required to migrate store to new major version.
       - NEO4J_dbms_allow__upgrade=true
 
-      # Timezone
+      # Timezone - Default is UTC
       - NEO4J_dbms_db_timezone=SYSTEM
       - NEO4J_db_temporal_timezone=America/Los_Angeles
 
