@@ -4,7 +4,7 @@
 import Player from "react-player"
 
 export const ReactPlayerDemo = () => {
-  // Displaying WOATW "War Within" music video
+  // WOATW "War Within" music video on YouTube WITHOUT any player controls, etc
   return <Player url="https://www.youtube.com/watch?v=9DkgVjpYB2Y" />
 }
 export default ReactPlayerDemo
