@@ -83,6 +83,21 @@ Once you have authenticated through [Auth0](https://auth0.com), you will see the
 
 ![app/__screenshots__/nextjs-web-default-page-authenticated-user.png](app/__screenshots__/nextjs-web-default-page-authenticated-user.png)
 
+#### Testing
+
+Once your application has been built and is running, there are several test scripts in the root `./package.json`.
+
+##### Code coverage
+
+You can run either `npm run test:coverage` or `npm run test:coverage:view` to execute the test suite and generate the code coverage report:
+
+EXAMPLE: Code coverage report generated on the command-line
+![app/__screenshots__/test-coverage-report-cli.png](app/__screenshots__/test-coverage-report-cli.png)
+
+EXAMPLE: Generating an HTML report to review and explore code coverage
+
+![app/__screenshots__/test-coverage-report-web.png](app/__screenshots__/test-coverage-report-web.png)
+
 #### [REFERENCE] Seed your Neo4j database with sample data
 
 Your Dockerized project automatically creates a Neo4j database automatically populated with sample data for you.
