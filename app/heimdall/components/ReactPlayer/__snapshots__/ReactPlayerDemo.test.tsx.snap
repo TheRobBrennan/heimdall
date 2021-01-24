@@ -5,7 +5,8 @@ exports[`The ReactPlayerDemo component should render 1`] = `
   style={
     Object {
       "height": "360px",
-      "width": "640px",
+      "margin": "auto",
+      "width": "90%",
     }
   }
 />
