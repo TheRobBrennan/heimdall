@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Our Auth0 decodeAuthorizationHeader lib when supplied with a valid "Bearer <token>" string should receive a decoded JWT object 1`] = `
+Object {
+  "aud": Array [
+    "https://heimdall.io/demo",
+    "https://heimdall-demo.us.auth0.com/userinfo",
+  ],
+  "azp": "6SnBQL5Zd7N1o0zysyffvaUEF5vhYJEH",
+  "exp": 1611554504,
+  "https://heimdall.io/jwt/claims": Object {
+    "x-heimdall-allowed-roles": Array [
+      "user",
+    ],
+    "x-heimdall-default-role": "user",
+    "x-heimdall-user-id": "google-oauth2|116058668302290861810",
+  },
+  "iat": 1611468104,
+  "iss": "https://heimdall-demo.us.auth0.com/",
+  "scope": "openid profile",
+  "sub": "google-oauth2|116058668302290861810",
+}
+`;
