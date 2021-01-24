@@ -2,7 +2,10 @@
 FROM neo4j:4.2.2
 
 # OPTIONAL: Use Pacific time (PST/PDT) instead of UTC
-#           This correctly sets the timezone for the Docker container; however Neo4j still uses UTC for logging
+# This correctly sets the timezone for the Docker container; however you will have to define the following Neo4j configuration settings as well:
+#   # Timezone - Default is UTC
+#   - NEO4J_dbms_db_timezone=SYSTEM
+#   - NEO4J_db_temporal_timezone=America/Los_Angeles
 RUN ln -fs /usr/share/zoneinfo/PST8PDT /etc/localtime
 RUN dpkg-reconfigure -f noninteractive tzdata
 
