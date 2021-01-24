@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Our Debug component should render Auth0 user details 1`] = `
+Array [
+  <p>
+    User debug information
+  </p>,
+  <pre>
+    {
+  "given_name": "Rob",
+  "family_name": "Brennan",
+  "nickname": "rob",
+  "name": "Rob Brennan",
+  "picture": "https://lh3.googleusercontent.com/a-/AOh14GijQDyp8j2v_8Dg3WMs7BtVIqs-dDVizUnEuNLbPKI=s96-c",
+  "gender": "male",
+  "locale": "en",
+  "updated_at": "2021-01-24T04:46:38.864Z",
+  "sub": "google-oauth2|116058668302290861810"
+}
+  </pre>,
+]
+`;
