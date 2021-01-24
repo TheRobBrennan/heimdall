@@ -1,13 +1,13 @@
 import { cleanup } from "@testing-library/react"
 
-import { A_WELL_FORMED_BUT_NOT_GUARANTEED_TO_BE_VALID_OR_VERIFIED_JWT_TOKEN } from "./index"
+import { A_WELL_FORMED_BUT_UNTRUSTED_AND_UNVERIFIED_JWT_TOKEN } from "./index"
 import { decodeAuthorizationHeader as func } from "./decodeAuthorizationHeader"
 
 describe("Our generic JWT decodeAuthorizationHeader lib", () => {
   afterEach(cleanup)
   describe('when supplied with a valid "Bearer <token>" string', () => {
     it("should receive a decoded JWT object", async () => {
-      const mockHttpAuthorizationHeaderValue = `Bearer ${A_WELL_FORMED_BUT_NOT_GUARANTEED_TO_BE_VALID_OR_VERIFIED_JWT_TOKEN}`
+      const mockHttpAuthorizationHeaderValue = `Bearer ${A_WELL_FORMED_BUT_UNTRUSTED_AND_UNVERIFIED_JWT_TOKEN}`
       const result = await func(mockHttpAuthorizationHeaderValue)
       expect(result).toMatchSnapshot()
     })
