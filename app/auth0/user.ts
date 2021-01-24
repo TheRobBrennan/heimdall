@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { useState, useEffect } from "react"
 import fetch from "cross-fetch"
 
