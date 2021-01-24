@@ -1,6 +1,8 @@
 # Heimdall
 
-This project is a continuation of my [GRANDstack Starter for Next.js with TypeScript](https://github.com/TheRobBrennan/nextjs-grandstack-starter-typescript) project.
+This project is a continuation of my [GRANDstack Starter for Next.js with TypeScript](https://github.com/TheRobBrennan/nextjs-grandstack-starter-typescript) project:
+
+![app/__screenshots__/nextjs-web-default-page-authenticated-user.png](app/__screenshots__/nextjs-web-default-page-authenticated-user.png)
 
 Heimdall was one of my favorite characters in the Thor movies - known for his presence guarding the rainbow bridge leading into the entry of Asgard (see [https://www.britannica.com/topic/Heimdall](https://www.britannica.com/topic/Heimdall))
 
