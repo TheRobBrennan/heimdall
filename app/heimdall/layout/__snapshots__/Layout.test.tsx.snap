@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Our Layout component should render with children 1`] = `[Function]`;
+
+exports[`Our Layout component should render without children 1`] = `[Function]`;
