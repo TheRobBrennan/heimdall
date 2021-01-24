@@ -456,7 +456,7 @@ describe("GRANDstack RecentReviews component", () => {
           variables: {},
         },
         result: {
-          // REVISIT: Create a pull request - errors should be able to be defined on the GraphQL result object because it can contain data and errors
+          // TODO: Create a pull request - errors should be able to be defined on the GraphQL result object because it can contain data and errors
           //          https://www.apollographql.com/docs/react/development-testing/testing/#graphql-errors
           errors: [
             new Error("Simulated GraphQL server response with an error"),

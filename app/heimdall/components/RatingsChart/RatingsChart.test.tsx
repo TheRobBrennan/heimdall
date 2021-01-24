@@ -38,7 +38,7 @@ describe("GRANDstack RatingsChart component", () => {
 
       expect(asFragment).toMatchSnapshot()
 
-      // REVISIT: Advance to the next tick in the event loop so our chart can render
+      // TODO: Advance to the next tick in the event loop so our chart can render
       // await act(() => {
       //   return new Promise((resolve) => {
       //     setTimeout(resolve, 0)
@@ -80,7 +80,7 @@ describe("GRANDstack RatingsChart component", () => {
 
       expect(asFragment).toMatchSnapshot()
 
-      // REVISIT: Advance to the next tick in the event loop so our chart can render
+      // TODO: Advance to the next tick in the event loop so our chart can render
       // await act(() => {
       //   return new Promise((resolve) => {
       //     setTimeout(resolve, 0)
