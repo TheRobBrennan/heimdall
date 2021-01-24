@@ -40,37 +40,39 @@ const RatingsChart: FC<IRatingsChart> = ({ width, height }) => {
   return (
     <>
       <Title>Ratings Distribution</Title>
-      {data && (
-        <ResponsiveContainer
-          height={height ? height : "100%"}
-          width={width ? width : "100%"}
-        >
-          <BarChart
-            data={data.ratingsCount}
-            margin={{
-              top: 16,
-              right: 16,
-              bottom: 0,
-              left: 24,
-            }}
+      {
+        /* istanbul ignore next */ data && (
+          <ResponsiveContainer
+            height={height ? height : "100%"}
+            width={width ? width : "100%"}
           >
-            <XAxis dataKey="stars" stroke={theme.palette.text.secondary} />
-            <YAxis stroke={theme.palette.text.secondary}>
-              <Label
-                angle={270}
-                position="left"
-                style={{
-                  textAnchor: "middle",
-                  fill: theme.palette.text.primary,
-                }}
-              >
-                Count
-              </Label>
-            </YAxis>
-            <Bar dataKey="count" fill={theme.palette.primary.main}></Bar>
-          </BarChart>
-        </ResponsiveContainer>
-      )}
+            <BarChart
+              data={data.ratingsCount}
+              margin={{
+                top: 16,
+                right: 16,
+                bottom: 0,
+                left: 24,
+              }}
+            >
+              <XAxis dataKey="stars" stroke={theme.palette.text.secondary} />
+              <YAxis stroke={theme.palette.text.secondary}>
+                <Label
+                  angle={270}
+                  position="left"
+                  style={{
+                    textAnchor: "middle",
+                    fill: theme.palette.text.primary,
+                  }}
+                >
+                  Count
+                </Label>
+              </YAxis>
+              <Bar dataKey="count" fill={theme.palette.primary.main}></Bar>
+            </BarChart>
+          </ResponsiveContainer>
+        )
+      }
     </>
   )
 }
