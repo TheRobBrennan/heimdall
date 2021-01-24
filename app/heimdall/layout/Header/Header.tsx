@@ -24,6 +24,7 @@ const Header: FC = () => {
   const APP_TWITTER_ACCOUNT = "therobbrennan"
   const KEYWORDS = "nextjs, react, grandstack, neo4j, typescript, apollo"
 
+  /* istanbul ignore next */
   const onLogout = () => {
     Router.push("api/logout")
   }
