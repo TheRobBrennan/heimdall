@@ -12,6 +12,7 @@ export const decodeAuth0JWT = async (token) => {
 
       // Get our signing key from Auth0
       const getKey = (header, callback) => {
+        /* istanbul ignore next */
         client.getSigningKey(header.kid, function (err, key: Auth0SigningKey) {
           if (err) {
             console.error(`ERROR obtaining signing key from Auth0: ${err}`)
