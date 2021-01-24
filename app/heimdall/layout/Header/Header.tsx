@@ -1,6 +1,7 @@
 import { FC } from "react"
 import Head from "next/head"
 import Link from "next/link"
+import Router from "next/router"
 import clsx from "clsx"
 
 import { dependencies } from "../../../package.json"
@@ -22,6 +23,10 @@ const Header: FC = () => {
   const APP_LOGO_URL = `${APP_URL}/${APP_LOGO}`
   const APP_TWITTER_ACCOUNT = "therobbrennan"
   const KEYWORDS = "nextjs, react, grandstack, neo4j, typescript, apollo"
+
+  const onLogout = () => {
+    Router.push("api/logout")
+  }
 
   return (
     <>
@@ -86,7 +91,7 @@ const Header: FC = () => {
           >
             {APP_TITLE}
           </Typography>
-          <Logout />
+          <Logout onLogout={onLogout} />
         </Toolbar>
       </AppBar>
     </>
