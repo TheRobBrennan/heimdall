@@ -1,4 +1,18 @@
+/* istanbul ignore file */
 import { useState, useEffect } from "react"
+import fetch from "cross-fetch"
+
+export type Auth0User = {
+  given_name: string
+  family_name: string
+  nickname: string
+  name: string
+  picture: string
+  gender: string
+  locale: string
+  updated_at: string
+  sub: string
+}
 
 export async function fetchUser(cookie = "") {
   if (typeof window !== "undefined" && window.__user) {

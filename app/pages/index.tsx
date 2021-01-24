@@ -2,26 +2,13 @@ import { NextPage } from "next"
 
 import Layout from "../heimdall/layout/Layout"
 import Dashboard from "../heimdall/components/Dashboard/Dashboard"
-import Login from "../heimdall/components/Authentication/Login/Login"
 import ReactPlayerDemo from "../heimdall/components/ReactPlayer/ReactPlayerDemo"
+import Debug from "../heimdall/components/Debug/Debug"
 
 import { useFetchUser } from "../auth0/user"
 
 const DefaultPage: NextPage = () => {
-  const { user, loading } = useFetchUser({ required: true })
-
-  // User debugging
-  // console.log(`[DEBUG] / user: ${JSON.stringify(user, null, 2)}`)
-
-  // Display our loading component
-  if (loading) {
-    return <div>Loading...</div>
-  }
-
-  // Display our login component
-  if (!loading && !user) {
-    return <Login />
-  }
+  const { user } = useFetchUser({ required: true })
 
   // Dashboard will display for authenticated users only
   return (
@@ -30,6 +17,8 @@ const DefaultPage: NextPage = () => {
         <div style={{ display: "block", margin: "auto" }}>
           <ReactPlayerDemo />
         </div>
+        <hr />
+        <Debug user={user} />
         <hr />
         <Dashboard />
       </>

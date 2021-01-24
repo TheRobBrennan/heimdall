@@ -1,13 +1,14 @@
-/* istanbul ignore file */
-import React from "react"
-import TestRenderer, { act } from "react-test-renderer"
+import * as React from "react"
+import { cleanup, render } from "@testing-library/react"
 import { MockedProvider } from "@apollo/client/testing"
 
-import RatingsChart, { GET_DATA_QUERY } from "./RatingsChart"
+import Component, { GET_DATA_QUERY } from "./RatingsChart"
 
 describe("GRANDstack RatingsChart component", () => {
+  afterEach(cleanup)
+
   describe("when invoked WITHOUT a specific height or size", () => {
-    it("should render the Ratings Distribution chart after receiving data", async () => {
+    it("should render the Ratings Distribution chart after receiving data", () => {
       // Define our Apollo request
       const renderRequest = {
         request: {
@@ -28,19 +29,16 @@ describe("GRANDstack RatingsChart component", () => {
       // Define our mock response(s)
       const gqlMocks = [renderRequest]
 
-      // REVISIT: Known untestable design using Recharts 🥺
-      console.warn(
-        `This is untestable due to a bug with testing the ResizeDetector component within the Recharts third-party library 🥺`
+      // Test
+      const { asFragment } = render(
+        <MockedProvider mocks={gqlMocks} addTypename={false}>
+          <Component />
+        </MockedProvider>
       )
 
-      // Test
-      // const component = TestRenderer.create(
-      //   <MockedProvider mocks={gqlMocks} addTypename={false}>
-      //     <RatingsChart />
-      //   </MockedProvider>
-      // )
+      expect(asFragment).toMatchSnapshot()
 
-      // Advance to the next tick in the event loop so our chart can render
+      // TODO: Advance to the next tick in the event loop so our chart can render
       // await act(() => {
       //   return new Promise((resolve) => {
       //     setTimeout(resolve, 0)
@@ -52,7 +50,7 @@ describe("GRANDstack RatingsChart component", () => {
   })
 
   describe("when invoked WITH a specific height and size", () => {
-    it("should render the Ratings Distribution chart after receiving data", async () => {
+    it("should render the Ratings Distribution chart after receiving data", () => {
       // Define our Apollo request
       const renderRequest = {
         request: {
@@ -73,19 +71,16 @@ describe("GRANDstack RatingsChart component", () => {
       // Define our mock response(s)
       const gqlMocks = [renderRequest]
 
-      // REVISIT: Known untestable design using Recharts 🥺
-      console.warn(
-        `This is untestable due to a bug with testing the ResizeDetector component within the Recharts third-party library 🥺`
+      // Test
+      const { asFragment } = render(
+        <MockedProvider mocks={gqlMocks} addTypename={false}>
+          <Component />
+        </MockedProvider>
       )
 
-      // Test
-      // const component = TestRenderer.create(
-      //   <MockedProvider mocks={gqlMocks} addTypename={false}>
-      //     <RatingsChart height={300} width={300} />
-      //   </MockedProvider>
-      // )
+      expect(asFragment).toMatchSnapshot()
 
-      // Advance to the next tick in the event loop so our chart can render
+      // TODO: Advance to the next tick in the event loop so our chart can render
       // await act(() => {
       //   return new Promise((resolve) => {
       //     setTimeout(resolve, 0)

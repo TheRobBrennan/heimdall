@@ -1,15 +1,17 @@
 import { decodeAuth0JWT } from "./decodeAuth0JWT"
 
-export const decodeAuthorizationHeader = async (authorizationHeader) => {
+export const decodeAuthorizationHeader = async (
+  authorizationHeaderValue: string
+) => {
   try {
     // Use array destructuring to disregard the first item. We only care about the JWT.
-    const [_, token] = authorizationHeader.split("Bearer ")
+    const [_, token] = authorizationHeaderValue.split("Bearer ")
 
     // DEBUG
     console.log(`
-    [DEBUG] Auth0 decodeAuthorizationHeader received authorization header:
+    [DEBUG] Auth0 decodeAuthorizationHeader received authorization header value:
 
-    ${authorizationHeader}
+    ${authorizationHeaderValue}
     `)
 
     // Decode and verify JWT using Auth0 keys
@@ -22,7 +24,7 @@ export const decodeAuthorizationHeader = async (authorizationHeader) => {
     return decodedAuth0JWT
   } catch (e) {
     return console.error(
-      `Unable to decode authorizationHeader: ${authorizationHeader}`
+      `Unable to decode authorizationHeaderValue: ${authorizationHeaderValue}`
     )
   }
 }

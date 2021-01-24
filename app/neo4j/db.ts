@@ -6,7 +6,7 @@ export const driver = (
   neo4jUser = process.env.NEO4J_USER,
   neo4jPassword = process.env.NEO4J_PASSWORD,
   neo4jEncryptedConnection = process.env.NEO4J_ENCRYPTED
-) => {
+) => /* istanbul ignore next */ {
   // REMEMBER: !!('false') IS true; we need to explicitly check for a false string value
   const isEncrypted =
     !!neo4jEncryptedConnection && neo4jEncryptedConnection != "false"

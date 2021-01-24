@@ -7,7 +7,9 @@ import { augmentedSchema } from "../../apollo/schema"
 export const RUNNING_ON_VERCEL = !!process.env.VERCEL_ENV
 
 // If we are deployed to Vercel, disable introspection and the GraphIQL playground for our GraphQL endpoint
+/* istanbul ignore next */
 export const ALLOW_GRAPHQL_INTROSPECTION = !RUNNING_ON_VERCEL ? true : false
+/* istanbul ignore next */
 export const ALLOW_GRAPHQL_PLAYGROUND = !RUNNING_ON_VERCEL ? true : false
 
 export const neo4jDriverInstance = driver()

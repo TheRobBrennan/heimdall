@@ -11,6 +11,7 @@ const httpLink = createHttpLink({
   fetch,
 })
 
+/* istanbul ignore next */
 const authLink = setContext(async () => {
   // See https://www.apollographql.com/docs/react/networking/authentication/#header for more details
   // Get our session detail from the back-end API

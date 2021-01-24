@@ -22,6 +22,8 @@ export const resolvers = {
       parseAnyWellFormedJWT(_context?.req?.headers?.authorization)
       return `Hello. The current timestamp is ${Date.now()}`
     },
+    // REVISIT: Write helloAuth query test
+    /* istanbul ignore next */
     async helloAuth(_parent, _args, _context) {
       try {
         // Use our Auth0 library to decode our authorization header
