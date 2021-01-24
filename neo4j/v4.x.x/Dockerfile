@@ -1,13 +1,18 @@
 # Official Neo4j Docker Images available at https://hub.docker.com/_/neo4j
 FROM neo4j:4.2.2
 
+# OPTIONAL: Use Pacific time (PST/PDT) instead of UTC
+#           This correctly sets the timezone for the Docker container; however Neo4j still uses UTC for logging
+RUN ln -fs /usr/share/zoneinfo/PST8PDT /etc/localtime
+RUN dpkg-reconfigure -f noninteractive tzdata
+
 # Install curl explicitly; it is no longer included in Neo4j base images
 RUN apt-get update; apt-get install curl -y
 
 # Specify the user/password for your Neo4j database
 ENV NEO4J_AUTH=neo4j/letmein
 
-# The APOC (Awesome Procedures On Cypher) library consists of many (about 450) procedures and functions to help with many different 
+# The APOC (Awesome Procedures On Cypher) library consists of many (about 450) procedures and functions to help with many different
 # tasks in areas like data integration, graph algorithms or data conversion.
 # https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases
 ENV APOC_VERSION=4.2.0.0
