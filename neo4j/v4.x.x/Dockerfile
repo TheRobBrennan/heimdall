@@ -18,7 +18,7 @@ ENV NEO4J_AUTH=neo4j/letmein
 # The APOC (Awesome Procedures On Cypher) library consists of many (about 450) procedures and functions to help with many different
 # tasks in areas like data integration, graph algorithms or data conversion.
 # https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases
-ENV APOC_VERSION=4.2.0.0
+ENV APOC_VERSION=4.2.0.1
 ENV APOC_URI https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/${APOC_VERSION}/apoc-${APOC_VERSION}-all.jar
 RUN sh -c 'cd /var/lib/neo4j/plugins && curl -L -O "${APOC_URI}"'
 
