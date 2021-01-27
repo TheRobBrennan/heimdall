@@ -27,6 +27,13 @@ services:
       - 7473:7473 # HTTPS
       - 7687:7687 # Bolt
     environment:
+      # DB_HOST and DB_PORT values would appear in command-line output as:
+      # heimdall-neo4j | 2021-01-26 21:51:22.234-0800 INFO  Remote interface available at http://localhost:7474/
+      - DB_HOST=localhost
+      - DB_PORT=7474
+      # Make sure this matches the NEO4J_AUTH environment variable declared in ./neo4j/v4.x.x/Dockerfile
+      - DB_USER=neo4j
+      - DB_PASSWORD=letmein
       # See https://neo4j.com/docs/operations-manual/current/docker/ref-settings/ for Docker configuration settings
       # See https://neo4j.com/docs/operations-manual/current/docker/configuration/ for the naming convention for NEO4J settings
       #   As an example, dbms.tx_log.rotation.size would be NEO4J_dbms_tx__log_rotation_size
