@@ -262,6 +262,6 @@ Now that we have defined our `$input` variable let's run the mutation by pressin
 
 After running the mutation, we will see something like:
 
-**OPTIONAL:** Let's navigate to the [Neo4j Browser](https://neo4j.com/developer/neo4j-browser/) at [http://localhost:7474/browser/](http://localhost:7474/browser/).
+**OPTIONAL:** Let's navigate to the [Neo4j Browser](https://neo4j.com/developer/neo4j-browser/) at [http://localhost:7474/browser/](http://localhost:7474/browser/)
 
 Click on the `User` label to view the data we just created with our mutation.
