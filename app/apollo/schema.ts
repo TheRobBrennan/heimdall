@@ -5,4 +5,5 @@ import { resolvers } from "./resolvers"
 export const augmentedSchema = makeAugmentedSchema({
   typeDefs,
   resolvers,
+  debug: true,
 })

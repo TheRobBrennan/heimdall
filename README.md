@@ -53,6 +53,10 @@ AUTH0_CLIENT_SECRET=<YOUR-AUTH0-CLIENT-SECRET>
 REDIRECT_URI=http://localhost:3000/api/callback
 POST_LOGOUT_REDIRECT_URI=http://localhost:3000/
 SESSION_COOKIE_SECRET=BXyv4qDtBKYxJtLopfY7nj75sJg3p2Ka
+# Auth0 JWT settings (using RS256)
+# Navigate to your Auth0 Applications dashboard > Your App > Settings > Show advanced settings... > Certificates
+# Copy the value from "Signing Certificate" to JWT_SECRET (make sure to add \n to retain proper line breaks in the flattened string)
+JWT_SECRET=<YOUR-AUTH0-SIGNING-CERTIFICATE>
 
 # Neo4j v4.x.x Community Edition [DOCKER]
 NEO4J_URI=bolt://neo4j:7687
