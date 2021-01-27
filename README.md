@@ -267,5 +267,3 @@ After running the mutation, we will see something like:
 **OPTIONAL:** Let's navigate to the [Neo4j Browser](https://neo4j.com/developer/neo4j-browser/) at [http://localhost:7474/browser/](http://localhost:7474/browser/).
 
 Click on the `User` label to view the data we just created with our mutation.
-
-![app/__screenshots__/neo4j-browser-localhost-users.png](app/__screenshots__/neo4j-browser-localhost-users.png)
