@@ -8,8 +8,6 @@ Heimdall was one of my favorite characters in the Thor movies - known for his pr
 
 ![https://64.media.tumblr.com/8e75c81012c514cdf35a4c4698c94117/ca0f3549065210e0-d5/s640x960/04108e728a06ce95161e5680239c613f84bc11bb.png](https://64.media.tumblr.com/8e75c81012c514cdf35a4c4698c94117/ca0f3549065210e0-d5/s640x960/04108e728a06ce95161e5680239c613f84bc11bb.png)
 
-[VIDEO: How To Say Heimdall](https://www.youtube.com/watch?v=FGy0k8J6ZWE)
-
 The goal of this project is to explore using the new alpha release of the [@neo4j/graphql](@neo4j/graphql) library within a [GRANDstack](https://grandstack.io) ([GraphQL](https://graphql.org), [React](https://reactjs.org), [Apollo](https://www.apollographql.com), [Neo4j Database](https://neo4j.com)) application.
 
 Specifically, the main focus will be exploring authorization using [Auth0](https://auth0.com) for user authentication - using the JWT token for `@auth` directives in the GraphQL API that will be built on top of a [Neo4j Database](https://neo4j.com) backend.
@@ -214,10 +212,12 @@ Let's define - but not run - the following mutation:
 ```gql
 mutation createNewAccounts($input: [UserCreateInput]!) {
   createUsers(input: $input) {
-    userId
-    name
-    reviews {
-      reviewId
+    users {
+      userId
+      name
+      reviews {
+        reviewId
+      }
     }
   }
 }
@@ -245,8 +245,6 @@ Similarly, we are passing the `$input` variable as the `input` parameter of the 
 
 `createUsers(input:$input) { ... }`
 
-![app/__screenshots__/graphiql-mutation-example-createUsers-00.png](app/__screenshots__/graphiql-mutation-example-createUsers-00.png)
-
 We do not need to define `userId` in our array of user objects because the `userId` field has been marked with the `@autogenerate` directive in our type definitions at `app/apollo/type-defs.ts`:
 
 ```gql
@@ -254,19 +252,44 @@ type User {
   userId: ID! @autogenerate
   name: String
   reviews: [Review] @relationship(type: "WROTE", direction: "OUT")
+  sub: String
+  createdAt: DateTime! @autogenerate(operations: ["create"])
+  updatedAt: DateTime! @autogenerate(operations: ["update"])
 }
 ```
 
-Now that we have defined our `$input` variable let's run the mutation by pressing the `Play` button.
+**UPDATE**: A `DateTime` scalar was introduced in the [alpha 3 release](https://www.notion.so/neo4j-graphql-v1-0-0-alpha-3-3aea2cccd2764f26be18f08d9e7379bd) of `@neo4j/graphql` - enabling use of the `@autogenerate` directive with a required parameter of `operations`. Note how this simplifies adding fields such as `createdAt` and `updatedAt` on our types.
 
-![app/__screenshots__/graphiql-mutation-example-createUsers-01.png](app/__screenshots__/graphiql-mutation-example-createUsers-01.png)
+Now that we have defined our `$input` variable let's run the mutation by pressing the `Play` button.
 
 After running the mutation, we will see something like:
 
-![app/__screenshots__/graphiql-mutation-example-createUsers-02.png](app/__screenshots__/graphiql-mutation-example-createUsers-02.png)
+```json
+{
+  "data": {
+    "createUsers": {
+      "users": [
+        {
+          "userId": "b682f59e-d183-427b-88dd-999a8aa903e8",
+          "name": "Justa User",
+          "reviews": []
+        },
+        {
+          "userId": "1f3c4fdd-dc56-4a44-bdb9-5741177bbadc",
+          "name": "Another User",
+          "reviews": []
+        },
+        {
+          "userId": "861cfbca-f1c3-4262-b267-95e371e22a7c",
+          "name": "Anincredible User",
+          "reviews": []
+        }
+      ]
+    }
+  }
+}
+```
 
-**OPTIONAL:** Let's navigate to the [Neo4j Browser](https://neo4j.com/developer/neo4j-browser/) at [http://localhost:7474/browser/](http://localhost:7474/browser/).
+**OPTIONAL:** Let's navigate to the [Neo4j Browser](https://neo4j.com/developer/neo4j-browser/) at [http://localhost:7474/browser/](http://localhost:7474/browser/)
 
 Click on the `User` label to view the data we just created with our mutation.
-
-![app/__screenshots__/neo4j-browser-localhost-users.png](app/__screenshots__/neo4j-browser-localhost-users.png)
