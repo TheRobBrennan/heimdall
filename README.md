@@ -214,10 +214,12 @@ Let's define - but not run - the following mutation:
 ```gql
 mutation createNewAccounts($input: [UserCreateInput]!) {
   createUsers(input: $input) {
-    userId
-    name
-    reviews {
-      reviewId
+    users {
+      userId
+      name
+      reviews {
+        reviewId
+      }
     }
   }
 }
@@ -245,8 +247,6 @@ Similarly, we are passing the `$input` variable as the `input` parameter of the 
 
 `createUsers(input:$input) { ... }`
 
-![app/__screenshots__/graphiql-mutation-example-createUsers-00.png](app/__screenshots__/graphiql-mutation-example-createUsers-00.png)
-
 We do not need to define `userId` in our array of user objects because the `userId` field has been marked with the `@autogenerate` directive in our type definitions at `app/apollo/type-defs.ts`:
 
 ```gql
@@ -254,16 +254,15 @@ type User {
   userId: ID! @autogenerate
   name: String
   reviews: [Review] @relationship(type: "WROTE", direction: "OUT")
+  sub: String
+  createdAt: DateTime! @autogenerate(operations: ["create"])
+  updatedAt: DateTime! @autogenerate(operations: ["update"])
 }
 ```
 
 Now that we have defined our `$input` variable let's run the mutation by pressing the `Play` button.
 
-![app/__screenshots__/graphiql-mutation-example-createUsers-01.png](app/__screenshots__/graphiql-mutation-example-createUsers-01.png)
-
 After running the mutation, we will see something like:
-
-![app/__screenshots__/graphiql-mutation-example-createUsers-02.png](app/__screenshots__/graphiql-mutation-example-createUsers-02.png)
 
 **OPTIONAL:** Let's navigate to the [Neo4j Browser](https://neo4j.com/developer/neo4j-browser/) at [http://localhost:7474/browser/](http://localhost:7474/browser/).
 
