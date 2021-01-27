@@ -27,9 +27,10 @@ services:
       - 7473:7473 # HTTPS
       - 7687:7687 # Bolt
     environment:
-      # TROUBLESHOOTING: DB_HOST value would appear in command-line output as:
-      #                  heimdall-neo4j | 2021-01-26 21:51:22.234-0800 INFO  Remote interface available at http://localhost:7474/
+      # DB_HOST and DB_PORT values would appear in command-line output as:
+      # heimdall-neo4j | 2021-01-26 21:51:22.234-0800 INFO  Remote interface available at http://localhost:7474/
       - DB_HOST=localhost
+      - DB_PORT=7474
       # Make sure this matches the NEO4J_AUTH environment variable declared in ./neo4j/v4.x.x/Dockerfile
       - DB_USER=neo4j
       - DB_PASSWORD=letmein

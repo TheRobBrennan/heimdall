@@ -24,7 +24,7 @@ set -m
 
 # Wait for Neo4j
 log_info "Checking to see if Neo4j has started..."
-wget --quiet --tries=10 --waitretry=10 -O /dev/null http://${DB_HOST}:7474
+wget --quiet --tries=10 --waitretry=10 -O /dev/null http://${DB_HOST}:${DB_PORT}
 log_info "Neo4j has started 🤓"
 
 # Import data
