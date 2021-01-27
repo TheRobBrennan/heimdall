@@ -106,11 +106,11 @@ CREATE (start)-[r:REVIEWS]->(end) SET r += row.properties;
 WITH apoc.date.currentTimestamp() as currentTimestamp
 MERGE (n:User {name: "Justa User"})
 ON CREATE SET
-  n.userId = "u5",
+  n.userId = randomUUID(),
   n.name = "Justa User",
   n.sub = "google-oauth2|116058668302290861810",
-  n.createdAt = datetime({epochMillis: currentTimestamp})
+  n.createdAt = datetime({epochMillis: currentTimestamp}),
+  n.createdBy = "** Neo4j database seed **"
 ON MATCH SET
-  n.userId = "u5",
-  n.sub = "google-oauth2|116058668302290861810",
-  n.updatedAt = datetime({epochMillis: currentTimestamp});
+  n.updatedAt = datetime({epochMillis: currentTimestamp}),
+  n.updatedBy = "** Neo4j database seed **";
