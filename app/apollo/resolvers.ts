@@ -22,7 +22,7 @@ export const resolvers = {
       parseAnyWellFormedJWT(_context?.req?.headers?.authorization)
       return `Hello. The current timestamp is ${Date.now()}`
     },
-    // REVISIT: Write helloAuth query test
+    // SUGGESTED: Write helloAuth query test
     /* istanbul ignore next */
     async helloAuth(_parent, _args, _context) {
       try {
