@@ -258,9 +258,37 @@ type User {
 }
 ```
 
+**UPDATE**: A `DateTime` scalar was introduced in the [alpha 3 release](https://www.notion.so/neo4j-graphql-v1-0-0-alpha-3-3aea2cccd2764f26be18f08d9e7379bd) of `@neo4j/graphql` - enabling use of the `@autogenerate` directive with a required parameter of `operations`. Note how this simplifies adding fields such as `createdAt` and `updatedAt` on our types.
+
 Now that we have defined our `$input` variable let's run the mutation by pressing the `Play` button.
 
 After running the mutation, we will see something like:
+
+```json
+{
+  "data": {
+    "createUsers": {
+      "users": [
+        {
+          "userId": "b682f59e-d183-427b-88dd-999a8aa903e8",
+          "name": "Justa User",
+          "reviews": []
+        },
+        {
+          "userId": "1f3c4fdd-dc56-4a44-bdb9-5741177bbadc",
+          "name": "Another User",
+          "reviews": []
+        },
+        {
+          "userId": "861cfbca-f1c3-4262-b267-95e371e22a7c",
+          "name": "Anincredible User",
+          "reviews": []
+        }
+      ]
+    }
+  }
+}
+```
 
 **OPTIONAL:** Let's navigate to the [Neo4j Browser](https://neo4j.com/developer/neo4j-browser/) at [http://localhost:7474/browser/](http://localhost:7474/browser/)
 
