@@ -31,9 +31,37 @@ services:
       # heimdall-neo4j | 2021-01-26 21:51:22.234-0800 INFO  Remote interface available at http://localhost:7474/
       - DB_HOST=localhost
       - DB_PORT=7474
+
       # Make sure this matches the NEO4J_AUTH environment variable declared in ./neo4j/v4.x.x/Dockerfile
       - DB_USER=neo4j
       - DB_PASSWORD=letmein
+
+      # Auth0 JWT settings (using RS256)
+      # Navigate to your Auth0 Applications dashboard > Your App > Settings > Show advanced settings... > Certificates
+      # Copy the value from "Signing Certificate" to JWT_SECRET
+      #
+      # KUDOS: Special thanks to Daniel Starns for pointing me in the direction of Will Lyon's video at https://youtu.be/Ay7-RyX9XPM?t=5013
+      - JWT_SECRET= |-
+        -----BEGIN CERTIFICATE-----
+        MIIDDzCCAfegAwIBAgIJIFoJXY1m7NOrMA0GCSqGSIb3DQEBCwUAMCUxIzAhBgNV
+        BAMTGmhlaW1kYWxsLWRlbW8udXMuYXV0aDAuY29tMB4XDTIxMDExNzA3MTQ1NFoX
+        DTM0MDkyNjA3MTQ1NFowJTEjMCEGA1UEAxMaaGVpbWRhbGwtZGVtby51cy5hdXRo
+        MC5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC1V4bqjRz80fXB
+        7/o4nc/cpJ+Cpgd0a5bny0uUaKaGwaUH7W5VR2mxNyxoL6o4/LLCEsh9eN9/OHJE
+        HjKO03hth60KLNctLVR+N5IhtiIzeLxnm51/mzunFe0xyv0gJM6Wgz+FvHGb6xw4
+        NhjqjNzjFZq22NYXvoLBQBRBycxajuSDMCZpyfrZkdJEgD3dt3+MVVveNR3GhLfD
+        rWYuwpy5Ak4aLVaGbVFMc5Q+KQnALCPCOppv/XaFHGpjXNZW5mMXakuo9EpbVKvD
+        uhaVpdYVf3QZoZtyq0EHXWAfn8t3wOL/dZ+xIGbP86fzBcmu3ZVolIXhxwzTpqRX
+        r7gjcpcxAgMBAAGjQjBAMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFM2rReOb
+        ZXqQ5/Vz/72X/xcMdsyWMA4GA1UdDwEB/wQEAwIChDANBgkqhkiG9w0BAQsFAAOC
+        AQEAJG4p/B40SG32mxMLYL3o/bhd9KZ3kQuZLPTidRQ/iZy0yPj892TaPb70GcPb
+        unuS62fHOZ/lJ9HuZFaWzQ7onAA0Y+KA8EvMimND4tnXjak0ihX/Cn0hfs6yFqUo
+        BVpwAMmfeEbkx7k/9WJXPOGx1//fHFwDcvSFDy9OYv4NvQvOyXJu+DBZn/NuIIem
+        kR8hm75p80TNb2IGpmPpNI5Npej17BcC8K4e5QFp1MdzAUmikXlQz8WBcLBl9yZI
+        eAVcqJVgIXPtYqGF5UGcID7s/ipe7OlS1P3V4cOx4G7fJPbwQhuf/z/MMTAykUnR
+        5iTSiaXnes6u1Z36N+T73mhEpA==
+        -----END CERTIFICATE-----
+
       # See https://neo4j.com/docs/operations-manual/current/docker/ref-settings/ for Docker configuration settings
       # See https://neo4j.com/docs/operations-manual/current/docker/configuration/ for the naming convention for NEO4J settings
       #   As an example, dbms.tx_log.rotation.size would be NEO4J_dbms_tx__log_rotation_size
