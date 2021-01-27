@@ -9,14 +9,18 @@ export const typeDefs = `
     reviews: [Review] @relationship(type: "REVIEWS", direction: "IN")
     categories: [Category] @relationship(type: "IN_CATEGORY", direction: "OUT")
     createdAt: DateTime @autogenerate(operations: ["create"])
+    createdBy: String
     updatedAt: DateTime @autogenerate(operations: ["update"])
+    updatedBy: String
   }
 
   type Category {
     name: ID!
     businesses: [Business] @relationship(type: "IN_CATEGORY", direction: "IN")
     createdAt: DateTime @autogenerate(operations: ["create"])
+    createdBy: String
     updatedAt: DateTime @autogenerate(operations: ["update"])
+    updatedBy: String
   }
 
   type RatingCount {
@@ -30,7 +34,9 @@ export const typeDefs = `
     reviews: [Review] @relationship(type: "WROTE", direction: "OUT")
     sub: String
     createdAt: DateTime @autogenerate(operations: ["create"])
+    createdBy: String
     updatedAt: DateTime @autogenerate(operations: ["update"])
+    updatedBy: String
   }
 
   type Review {
@@ -41,7 +47,9 @@ export const typeDefs = `
     business: Business @relationship(type: "REVIEWS", direction: "OUT")
     user: User @relationship(type: "WROTE", direction: "IN")
     createdAt: DateTime @autogenerate(operations: ["create"])
+    createdBy: String
     updatedAt: DateTime @autogenerate(operations: ["update"])
+    updatedBy: String
   }
 
   type Query {
