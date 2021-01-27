@@ -16,7 +16,7 @@ import {
 
 export const GET_RECENT_REVIEWS_QUERY = gql`
   {
-    Reviews(options: { sort: [date_DESC] }) {
+    reviews(options: { sort: [date_DESC] }) {
       date
       user {
         userId
@@ -50,7 +50,7 @@ const RecentReviews: FC = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data?.Reviews.map((review) => (
+          {data?.reviews.map((review) => (
             <TableRow
               key={`${review?.user?.name}-${review?.user?.userId}-${review?.date?.year?.low}-${review?.date?.month?.low}-${review?.date?.day?.low}`}
             >
