@@ -9,10 +9,10 @@ import {
 } from "@apollo/client"
 import fetch from "cross-fetch"
 
-const authContext = createContext()
+const AuthContext = createContext()
 
 export const useAuth = () => {
-  return useContext(authContext)
+  return useContext(AuthContext)
 }
 
 function useProvideAuth() {
@@ -107,10 +107,10 @@ export function AuthProvider({ children }) {
   const auth = useProvideAuth()
 
   return (
-    <authContext.Provider value={auth}>
+    <AuthContext.Provider value={auth}>
       <ApolloProvider client={auth.createApolloClient()}>
         {children}
       </ApolloProvider>
-    </authContext.Provider>
+    </AuthContext.Provider>
   )
 }
