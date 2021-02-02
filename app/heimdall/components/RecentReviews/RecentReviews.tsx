@@ -50,19 +50,21 @@ const RecentReviews: FC = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data?.reviews.map((review) => (
-            <TableRow
-              key={`${review?.user?.name}-${review?.user?.userId}-${review?.date?.year?.low}-${review?.date?.month?.low}-${review?.date?.day?.low}`}
-            >
-              <TableCell>
-                {`${review?.date?.year?.low}.${review?.date?.month?.low}.${review?.date?.day?.low}`}
-              </TableCell>
-              <TableCell>{review?.business?.name}</TableCell>
-              <TableCell>{review?.user?.name}</TableCell>
-              <TableCell>{review?.text}</TableCell>
-              <TableCell align="right">{review?.stars?.low}</TableCell>
-            </TableRow>
-          ))}
+          {data?.reviews.map(
+            /* istanbul ignore next */ (review) => (
+              <TableRow
+                key={`${review?.user?.name}-${review?.user?.userId}-${review?.date?.year?.low}-${review?.date?.month?.low}-${review?.date?.day?.low}`}
+              >
+                <TableCell>
+                  {`${review?.date?.year?.low}.${review?.date?.month?.low}.${review?.date?.day?.low}`}
+                </TableCell>
+                <TableCell>{review?.business?.name}</TableCell>
+                <TableCell>{review?.user?.name}</TableCell>
+                <TableCell>{review?.text}</TableCell>
+                <TableCell align="right">{review?.stars?.low}</TableCell>
+              </TableRow>
+            )
+          )}
         </TableBody>
       </Table>
     </>

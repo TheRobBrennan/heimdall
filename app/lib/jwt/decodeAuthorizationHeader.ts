@@ -23,8 +23,9 @@ export const decodeAuthorizationHeader = async (authorizationHeader) => {
       )}`
     )
 
-    // Decode and verify JWT using Auth0 keys
+    // Now let's decode and verify JWT using Auth0 keys
     const decodedAuth0JWT = await decodeAuth0JWT(token)
+    /* istanbul ignore next */
     console.log(
       `Decoded Auth0 JWT: ${JSON.stringify(decodedAuth0JWT, null, 2)}`
     )
