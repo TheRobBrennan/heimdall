@@ -7,6 +7,7 @@ import {
   HttpLink,
   gql,
 } from "@apollo/client"
+import fetch from "cross-fetch"
 
 const authContext = createContext()
 
@@ -15,6 +16,8 @@ export const useAuth = () => {
 }
 
 function useProvideAuth() {
+  let apolloClient
+
   const [authToken, setAuthToken] = useState(null)
 
   const getAuthHeaders = () => {
@@ -25,16 +28,37 @@ function useProvideAuth() {
     }
   }
 
-  function createApolloClient() {
+  function createApolloClient(initialState) {
+    const ssrMode = typeof window === "undefined"
+
     const link = new HttpLink({
-      uri: "http://localhost:4001/graphql",
+      uri: "api/graphql",
       headers: getAuthHeaders(),
+      fetch,
     })
 
     return new ApolloClient({
+      ssrMode,
       link,
-      cache: new InMemoryCache(),
+      cache: new InMemoryCache().restore(initialState),
     })
+  }
+
+  function initializeApollo(initialState = null) {
+    const _apolloClient = apolloClient ?? createApolloClient(initialState)
+
+    // If your page has Next.js data fetching methods that use Apollo Client, the initial state
+    // get hydrated here
+    if (initialState) {
+      _apolloClient.cache.restore(initialState)
+    }
+    // For SSG and SSR always create a new Apollo Client
+    /* istanbul ignore next */
+    if (typeof window === "undefined") return _apolloClient
+    // Create the Apollo Client once in the client
+    if (!apolloClient) apolloClient = _apolloClient
+
+    return _apolloClient
   }
 
   const signOut = () => {
@@ -72,6 +96,7 @@ function useProvideAuth() {
 
   return {
     createApolloClient,
+    initializeApollo,
     signIn,
     signOut,
     isSignedIn,
