@@ -5,7 +5,7 @@ import {
   ApolloClient,
   InMemoryCache,
   HttpLink,
-  gql,
+  // gql, /* REVISIT: Import gql when auth mutations are ready to be invoked */
 } from "@apollo/client"
 import fetch from "cross-fetch"
 
