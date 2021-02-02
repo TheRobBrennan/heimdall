@@ -11,6 +11,7 @@ import fetch from "cross-fetch"
 
 const AuthContext = createContext(null)
 
+/* istanbul ignore next */
 export const useAuth = () => {
   return useContext(AuthContext)
   // Returns the object from an instantiated useProvideAuth function
@@ -24,7 +25,7 @@ export const useAuth = () => {
   // )
 }
 
-export function AuthProvider({ children }) {
+export function AuthProvider({ children = null }) {
   const auth = useProvideAuth()
 
   return (
@@ -36,6 +37,7 @@ export function AuthProvider({ children }) {
   )
 }
 
+/* istanbul ignore next */
 function useProvideAuth() {
   let apolloClient
 
