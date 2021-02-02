@@ -9,10 +9,22 @@ import {
 } from "@apollo/client"
 import fetch from "cross-fetch"
 
-const AuthContext = createContext()
+const AuthContext = createContext(null)
 
 export const useAuth = () => {
   return useContext(AuthContext)
+}
+
+export function AuthProvider({ children }) {
+  const auth = useProvideAuth()
+
+  return (
+    <AuthContext.Provider value={auth}>
+      <ApolloProvider client={auth.createApolloClient(null)}>
+        {children}
+      </ApolloProvider>
+    </AuthContext.Provider>
+  )
 }
 
 function useProvideAuth() {
@@ -61,37 +73,43 @@ function useProvideAuth() {
     return _apolloClient
   }
 
+  const signIn = async ({ username, password }) => {
+    // REVISIT: Implement LoginMutation and set authToken
+    console.log(
+      `(!) TODO: Implement signIn login mutation and set authToken for username: ${username} :: password: ${password} (!)`
+    )
+    // const client = createApolloClient(null)
+    // const LoginMutation = gql`
+    //   mutation LoginMutation($username: String!, $password: String!) {
+    //     login(username: $username, password: $password) {
+    //       token
+    //     }
+    //   }
+    // `
+    // const result = await client.mutate({
+    //   mutation: LoginMutation,
+    //   variables: { username, password },
+    // })
+    // console.log(result)
+    // if (result?.data?.login?.token) {
+    //   setAuthToken(result.data.login.token)
+    // }
+  }
+
   const signOut = () => {
     setAuthToken(null)
   }
 
-  const signIn = async ({ username, password }) => {
-    const client = createApolloClient()
-    const LoginMutation = gql`
-      mutation LoginMutation($username: String!, $password: String!) {
-        login(username: $username, password: $password) {
-          token
-        }
-      }
-    `
-    const result = await client.mutate({
-      mutation: LoginMutation,
-      variables: { username, password },
-    })
-
-    console.log(result)
-
-    if (result?.data?.login?.token) {
-      setAuthToken(result.data.login.token)
-    }
-  }
-
   const isSignedIn = () => {
-    if (authToken) {
-      return true
-    } else {
-      return false
-    }
+    // REVISIT: Implement isSignedIn once authToken has been set
+    console.log(
+      `(!) TODO: Implement isSignedIn once authToken has been set (!)`
+    )
+    // if (authToken) {
+    //   return true
+    // } else {
+    //   return false
+    // }
   }
 
   return {
@@ -101,16 +119,4 @@ function useProvideAuth() {
     signOut,
     isSignedIn,
   }
-}
-
-export function AuthProvider({ children }) {
-  const auth = useProvideAuth()
-
-  return (
-    <AuthContext.Provider value={auth}>
-      <ApolloProvider client={auth.createApolloClient()}>
-        {children}
-      </ApolloProvider>
-    </AuthContext.Provider>
-  )
 }
