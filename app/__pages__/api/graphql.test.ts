@@ -3,7 +3,7 @@ import { apolloServer } from "../../pages/api/graphql"
 import { createTestClient } from "apollo-server-testing"
 
 // Types
-import { HelloQuery, HelloResponse } from "../../apollo/queries/hello"
+import { HelloQuery, HelloResponse } from "../../graphql/queries/hello"
 
 describe("Apollo Server", () => {
   describe("Query", () => {

@@ -12,8 +12,8 @@
  *  https://www.notion.so/neo4j-graphql-v1-0-0-alpha-2-d47908030d4e4a0c86babbaef63887d0
  */
 
-import { decodeAuthorizationHeader } from "../auth0/lib"
-import { decodeAuthorizationHeader as parseAnyWellFormedJWT } from "../lib/jwt"
+import { decodeAuthorizationHeader } from "../../auth0/lib"
+import { decodeAuthorizationHeader as parseAnyWellFormedJWT } from "../../lib/jwt"
 
 export const resolvers = {
   Query: {
