@@ -83,7 +83,7 @@ function useProvideAuth() {
   }
 
   const signIn = async ({ username, password }) => {
-    // REVISIT: Implement LoginMutation and set authToken
+    // REVISIT: Implement signIn login mutation and set authToken
     console.log(
       `(!) TODO: Implement signIn login mutation and set authToken for username: ${username} :: password: ${password} (!)`
     )
@@ -106,7 +106,9 @@ function useProvideAuth() {
   }
 
   const signOut = () => {
-    setAuthToken(null)
+    // REVISIT: Implement signOut once authToken has been set
+    console.log(`(!) TODO: Implement signOut once authToken has been set (!)`)
+    // setAuthToken(null)
   }
 
   const isSignedIn = () => {
