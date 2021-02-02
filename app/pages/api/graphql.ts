@@ -1,6 +1,6 @@
 import { ApolloServer } from "apollo-server-micro"
 import { driver } from "../../neo4j/db"
-import { augmentedSchema } from "../../apollo/schema"
+import { augmentedSchema } from "../../graphql/schema"
 
 // Use Vercel system environment variables to determine if we should allow introspection and the GraphIQL playground
 // See https://vercel.com/docs/environment-variables#system-environment-variables for more details
