@@ -24,7 +24,7 @@ export const useAuth = () => {
   // )
 }
 
-export function AuthProvider({ children }) {
+export function AuthProvider({ children = null }) {
   const auth = useProvideAuth()
 
   return (
