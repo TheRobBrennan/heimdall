@@ -13,6 +13,15 @@ const AuthContext = createContext(null)
 
 export const useAuth = () => {
   return useContext(AuthContext)
+  // Returns the object from an instantiated useProvideAuth function
+  // (e.g. {
+  //   createApolloClient,
+  //   initializeApollo,
+  //   signIn,
+  //   signOut,
+  //   isSignedIn,
+  //  }
+  // )
 }
 
 export function AuthProvider({ children }) {
