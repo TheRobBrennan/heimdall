@@ -10,18 +10,6 @@ import {
 
 const authContext = createContext()
 
-export function AuthProvider({ children }) {
-  const auth = useProvideAuth()
-
-  return (
-    <authContext.Provider value={auth}>
-      <ApolloProvider client={auth.createApolloClient()}>
-        {children}
-      </ApolloProvider>
-    </authContext.Provider>
-  )
-}
-
 export const useAuth = () => {
   return useContext(authContext)
 }
@@ -88,4 +76,16 @@ function useProvideAuth() {
     signOut,
     isSignedIn,
   }
+}
+
+export function AuthProvider({ children }) {
+  const auth = useProvideAuth()
+
+  return (
+    <authContext.Provider value={auth}>
+      <ApolloProvider client={auth.createApolloClient()}>
+        {children}
+      </ApolloProvider>
+    </authContext.Provider>
+  )
 }
