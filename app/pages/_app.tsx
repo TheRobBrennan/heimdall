@@ -1,4 +1,4 @@
-import { AuthProvider } from "../apollo/context/auth"
+import { AuthProvider } from "../apollo/context"
 
 export default function App({ Component, pageProps }) {
   return (
