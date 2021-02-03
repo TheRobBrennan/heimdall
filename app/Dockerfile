@@ -13,7 +13,7 @@ RUN ln -fs /usr/share/zoneinfo/PST8PDT /etc/localtime
 RUN dpkg-reconfigure -f noninteractive tzdata
 
 # Install dependencies
-COPY package*.json /usr/src/app/
+COPY package.json /usr/src/app/
 RUN npm install
 
 # Copy source files

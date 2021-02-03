@@ -54,6 +54,18 @@ type Query {
   """
   A sample query to verify that our GraphQL server is online.
 
+  It returns the current timestamp.
+  """
+  ping: String!
+    @cypher(
+      statement: """
+      RETURN toString(datetime())
+      """
+    )
+
+  """
+  A sample query to verify that our GraphQL server is online.
+
   It returns a friendly greeting with the current timestamp.
   """
   hello: String!

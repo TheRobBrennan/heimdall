@@ -42,7 +42,7 @@
     "jsonwebtoken": "^8.5.1",
     "jwks-rsa": "^1.12.2",
     "jwt-decode": "^3.1.2",
-    "neo4j-driver": "^4.1.1",
+    "neo4j-driver": "^4.2.2",
     "next": "^10.0.5",
     "next-compose-plugins": "^2.2.0",
     "next-images": "^1.4.1",
